@@ -8,13 +8,13 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        $Kategori = Kategori::all();
-        return view('admin.Kategori.index', compact('Kategori'));
+        $kategori = Kategori::all();
+        return view('admin.kategori.index', compact('kategori'));
     }
 
     public function create()
     {
-        return view('admin.Kategori.tambah');
+        return view('admin.kategori.tambah');
     }
 
     public function store(Request $request)
@@ -27,32 +27,32 @@ class KategoriController extends Controller
             'kategori' => $request->kategori,
             'deskripsi' => $request->deskripsi,
         ]);
-        return redirect()->route('Kategori.index')
+        return redirect()->route('kategori.index')
             ->with('success', 'Kategori Berhasil Ditambahkan');
     }
 
     public function show($id)
     {
-        $Kategoris = Kategori::where('id', $id)->first();
-        return view('Kategoriadmin.Kategori.show', compact('Kategori'))
+        $kategoris = Kategori::where('id', $id)->first();
+        return view('Kategoriadmin.Kategori.show', compact('kategori'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
     public function edit($id)
     {
-        $Kategori = Kategori::find($id);
-        return view('admin.Kategori.edit',compact('Kategori','kode'));
+        $kategori = Kategori::find($id);
+        return view('admin.kategori.edit',compact('kategori'));
     }
 
     public function update(Request $request, $id)
     {
-        $Kategori = Kategori::findOrFail($id);
-        $Kategori->kategori = $request->kategori;
-        $Kategori->deskripsi = $request->deskripsi;
-        $Kategori->save();
+        $kategori = Kategori::findOrFail($id);
+        $kategori->kategori = $request->kategori;
+        $kategori->deskripsi = $request->deskripsi;
+        $kategori->save();
 
-        return redirect()->route('Kategori.index')
+        return redirect()->route('kategori.index')
         ->with('edit', 'Kategori Berhasil Diedit');
     }
 
@@ -60,7 +60,7 @@ class KategoriController extends Controller
     {
         Kategori::where('id', $id)->delete();
 
-        return redirect()->route('Kategori.index')
+        return redirect()->route('kategori.index')
             ->with('delete', 'Kategori Berhasil Dihapus');
     }
 }

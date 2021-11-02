@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Kategori;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -16,7 +18,8 @@ class ProdukController extends Controller
 
     public function create()
     {
-        return view('admin.Produk.addProduk');
+        $kategori = Kategori::all();
+        return view('admin.produk.tambah', compact('kategori'));
     }
 
     public function store(Request $request)
@@ -27,24 +30,28 @@ class ProdukController extends Controller
             'harga' => 'required',
             'foto' => 'required',
             'kategori_id' => 'required',
-            'stok' => 'required',
+            'stok' => 'required', 
         ]);
 
-        
-        $date = date("his");
-        $extension = $request->file('foto')->extension();
-        $file_name = "Produk_$date.$extension";
-        $path = $request->file('foto')->storeAs('public/Produk', $file_name);
+        $upload = $request->foto;
+        if (isset($request->foto)) {
+            $extention = $request->foto->extension();
+            $file_name = time() . '.' . $extention;
+            $txt = 'storage/images/'. $file_name;
+            $request->foto->storeAs('public/images', $file_name);
+        } else {
+            $file_name = null;
+        }
 
-        $Produk = Produk::create([
+        Produk::create([
             'nama_produk' => $request->nama_produk,
             'deskripsi' => $request->deskripsi,
-            'foto' => $file_name,
+            'foto' => $txt,
             'harga' => $request->harga,
-            'kategori_id' => $request->kategori_id,
             'stok' => $request->stok,
+            'kategori_id' => $request->kategori_id,
         ]);
-        return redirect()->route('Produk.index')
+        return redirect()->route('produk.index')
             ->with('success', 'Produk Berhasil Ditambahkan');
     }
     public function show($id)
@@ -57,8 +64,8 @@ class ProdukController extends Controller
 
     public function edit($id)
     {
-        $Produk = Produk::find($id);
-        return view('admin.Produk.edit',compact('Produk','kode'));
+        $produk = Produk::find($id);
+        return view('admin.produk.edit',compact('produk'));
     }
 
     public function update(Request $request, $id)
@@ -101,7 +108,7 @@ class ProdukController extends Controller
     {
         Produk::findOrFail($id)->delete();
 
-        return redirect()->route('Produk.index')
+        return redirect()->route('produk.index')
             ->with('delete', 'Produk Berhasil Dihapus');
     }
 }
