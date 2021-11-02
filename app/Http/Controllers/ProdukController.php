@@ -9,8 +9,8 @@ class ProdukController extends Controller
 {
     public function index()
     {
-        $Produk = Produk::all();
-        return view('admin.Produk.index', compact('Produk'))
+        $produk = Produk::all();
+        return view('admin.produk.index', compact('produk'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
