@@ -9,7 +9,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-7 align-self-center">
-                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Ubah Data Produk
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Tambah Data Produk
                     </h4>
                     <br><br>
                 </div>
@@ -19,9 +19,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form class="mt-4" action="{{ route('produk.update',$produk->id) }}" method="POST" enctype="multipart/form-data">
+                        <form class="mt-4" action="{{ route('produk.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @method("PUT")
                             <div class="form-group">
                                 <label for="">Nama Produk</label>
                                 <input type="text" name="nama_produk" class="form-control">
@@ -59,7 +58,7 @@
                                 <input type="text" name="stok" class="form-control">
                             </div>
                             <div>
-                                <button type="sumbit" class="btn waves-effect waves-light btn-success">Ubah Produk</button>
+                                <button type="sumbit" class="btn waves-effect waves-light btn-success">Tambah Produk</button>
                             </div>
                         </form>
                     </div>

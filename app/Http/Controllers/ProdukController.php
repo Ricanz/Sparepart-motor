@@ -65,7 +65,8 @@ class ProdukController extends Controller
     public function edit($id)
     {
         $produk = Produk::find($id);
-        return view('admin.produk.edit',compact('produk'));
+        $kategori = Kategori::all();
+        return view('admin.produk.edit',compact('produk','kategori'));
     }
 
     public function update(Request $request, $id)
@@ -100,7 +101,7 @@ class ProdukController extends Controller
         $Produk->stok = $request->stok;
         $Produk->save();
 
-        return redirect()->route('Produk.index')
+        return redirect()->route('produk.index')
         ->with('edit', 'Produk Berhasil Diedit');
     }
 

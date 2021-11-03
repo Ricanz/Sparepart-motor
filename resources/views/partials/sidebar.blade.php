@@ -27,6 +27,21 @@
                                 class="hide-menu">Kategori
                             </span></a>
                         </li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('cart.index') }}"
+                            aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
+                                class="hide-menu">Cart
+                            </span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('rating.index') }}"
+                            aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
+                                class="hide-menu">Rating
+                            </span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('transaksi.index') }}"
+                            aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
+                                class="hide-menu">Transaksi
+                            </span></a>
+                        </li>
                         <li class="list-divider"></li>
                         <li class="nav-small-cap"><span class="hide-menu">Akun</span></li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.html"
