@@ -22,17 +22,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('produk', ProdukController::class);
-Route::resource('kategori', KategoriController::class);
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resource('produk', ProdukController::class);
+    Route::resource('kategori', KategoriController::class);   
+    Route::resource('cart', CartController::class);
+    Route::resource('rating', RatingController::class);
+    Route::resource('transaksi', TransaksiController::class);
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
+});
 
-
-Route::resource('cart', CartController::class);
-Route::resource('rating', RatingController::class);
-Route::resource('transaksi', TransaksiController::class);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
