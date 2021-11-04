@@ -43,4 +43,5 @@ require __DIR__.'/auth.php';
 // });
 
 // Route::get('/home', landingPageController::class, 'produk');
-Route::get('home', 'landingPageController@produk');
+Route::get('/home', [landingPageController::class, 'produk']);
+// Route::get('home', 'landingPageController@produk');
