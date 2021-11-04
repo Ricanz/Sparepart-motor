@@ -64,16 +64,20 @@
       </div>
 
       <div class="row">
+        @foreach ($produk as $item)
         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{asset('landingPage/assets/img/team/team-1.jpg')}}" alt="Card image cap">
+            <img class="card-img-top" src="{{ $item->foto }}" alt="Card image cap">
             <div class="card-body">
-              <h4><a href="">Magni Dolores</a></h4>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h4><a href="">{{ $item->nama_produk }}</a></h4>
+              <p class="card-text">{{ $item->deskripsi }}</p>
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
-        </div>
+        </div> 
+        @endforeach
+        
+
       </div>
     </div>
   </section><!-- End Services Section -->

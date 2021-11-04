@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/des', function () {
-    return view('user.index');
-});
+// Route::get('/des', function () {
+//     return view('user.index');
+// });
+
+// Route::get('/home', landingPageController::class, 'produk');
+Route::get('home', 'landingPageController@produk');
