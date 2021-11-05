@@ -30,8 +30,8 @@
                   <div class="col-lg-12">
                     <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
                       <div class="member-info">
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
+                        <h4>Nama Produk</h4>
+                        <span>Harga</span>
                       </div>
                     </div>
                   </div>
@@ -40,9 +40,6 @@
               </div>
             </section>
           </div>
-
-
-
         </div>
 
         <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("{{asset('landingPage/assets/img/why-us.png')}}");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
