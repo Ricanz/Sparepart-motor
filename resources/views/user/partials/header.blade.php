@@ -27,7 +27,7 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li> --}}
-          <li><a class="getstarted scrollto" href="#about">Keranjang</a></li>
+          <li><a class="getstarted scrollto" href="{{route('keranjang')}}">Keranjang</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

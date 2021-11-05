@@ -22,8 +22,8 @@
             <p class="fst-italic">
               {{$produk->deskripsi}}
             </p>
-            <input type="hidden" name="nama_produk" value="{{$produk->id}}">
-
+            <input type="hidden" name="produk_id" value="{{$produk->id}}">
+           
             <section id="about" class="about">
               <div class="container" data-aos="fade-up">
                 <div class="row content">

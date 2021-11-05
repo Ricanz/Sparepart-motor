@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/show', function () {
     return view('user.show');
 });
@@ -49,8 +49,12 @@ require __DIR__.'/auth.php';
 // });
 
 // Route::get('/home', landingPageController::class, 'produk');
-Route::get('/home', [landingPageController::class, 'produk']);
+Route::get('/', [landingPageController::class, 'produk']);
 // Route::get('home', 'landingPageController@produk');
 
-Route::get('/show/{id}/produk', [landingPageController::class, 'showproduk']);
+Route::get('/show/{id}/produk', [landingPageController::class, 'showproduk'])->name('detail-produk');
 Route::post('/tambah-cart', [landingPageController::class, 'tambahcart']);
+
+Route::get('/cart', [landingPageController::class, 'keranjang'])->name('keranjang');
+
+Route::POST('/checkout', [landingPageController::class, 'checkout'])->name('checkout');
