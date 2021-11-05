@@ -25,23 +25,22 @@
           <div class="content">
             <section id="team" class="team section-bg">
               <div class="container" data-aos="fade-up">
-
-                <div class="row">
+                <div class="row">                 
                   <div class="col-lg-12">
+                    @foreach ($Pembayaran as $item)
                     <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
                       <div class="member-info">
-                        <h4>Nama Produk</h4>
-                        <span>Harga</span>
+                        <h4>{{$item->produk->nama_produk}}</h4>
+                        <span>{{$item->jumlah}}</span>
                       </div>
                     </div>
-                  </div>
-                </div>
-
+                    @endforeach    
+                  </div>                     
+                </div>  
               </div>
             </section>
           </div>
         </div>
-
         <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("{{asset('landingPage/assets/img/why-us.png')}}");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
       </div>
 

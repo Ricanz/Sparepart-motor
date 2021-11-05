@@ -46,19 +46,30 @@ class landingPageController extends Controller
     {
         $cart = $request->input('cart');
         $jumlah = $request->input('jumlah');
+        // dd($cart,$jumlah);
         foreach ($cart as $item) {
-
+            // dd($item);
             $nilai = $jumlah[$item];
-            // dd($cart,$jumlah,$nilai);
+            $produkid = Cart::find($item);
+
+            // dd($produkid,$nilai,$produkid->produk_id);
             Pembayaran::create([
-                'cart_id'=> $item,
+                'produk_id'=> $produkid->produk_id,
                 'user_id' => Auth::user()->id,
                 'jumlah' => $nilai,
             ]);
+            Cart::findOrFail($item)->delete();
+
         }
     
-        return redirect()->route('detail-produk',$request->produk_id)
+        return redirect()->route('bayar')
             ->with('success', 'Produk Berhasil Ditambahkan');
+    }
+
+    public function pembayaran()
+    {
+        $Pembayaran = Pembayaran::where('user_id',Auth::user()->id)->get();
+        return view('user.checkout', compact('Pembayaran'));
     }
 
 }

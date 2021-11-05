@@ -61,3 +61,4 @@ Route::post('/tambah-cart', [landingPageController::class, 'tambahcart']);
 Route::get('/cart', [landingPageController::class, 'keranjang'])->name('keranjang');
 
 Route::POST('/checkout', [landingPageController::class, 'checkout'])->name('checkout');
+Route::get('/bayar', [landingPageController::class, 'pembayaran'])->name('bayar');
