@@ -25,6 +25,9 @@ Route::get('/', function () {
 Route::get('/show', function () {
     return view('user.show');
 });
+Route::get('/keranjangBelanja', function () {
+    return view('user.keranjang');
+});
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('produk', ProdukController::class);
