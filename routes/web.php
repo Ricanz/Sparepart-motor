@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/show', function () {
+    return view('user.show');
+});
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('produk', ProdukController::class);

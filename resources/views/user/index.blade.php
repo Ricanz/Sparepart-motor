@@ -71,7 +71,7 @@
             <div class="card-body">
               <h4><a href="">{{ $item->nama_produk }}</a></h4>
               <p class="card-text">{{ $item->deskripsi }}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="/show" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
         </div> 

@@ -57,7 +57,7 @@ class ProdukController extends Controller
     public function show($id)
     {
         $Produks = Produk::where('id', $id)->first();
-        return view('Produkadmin.Produk.show', compact('Produk'))
+        return view('user.show', compact('Produk'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

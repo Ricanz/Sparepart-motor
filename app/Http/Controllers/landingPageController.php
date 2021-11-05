@@ -15,4 +15,6 @@ class landingPageController extends Controller
         return view('user.index', compact('produk'));
     }
 
+    
+
 }
