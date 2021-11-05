@@ -1,15 +1,10 @@
-<div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<script src="{{asset('landingPage/js/jquery-3.3.1.min.js')}}"></script>
+<script src="{{asset('landingPage/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('landingPage/js/jquery.nice-select.min.js')}}"></script>
+<script src="{{asset('landingPage/js/jquery-ui.min.js')}}"></script>
+<script src="{{asset('landingPage/js/jquery.slicknav.js')}}"></script>
+<script src="{{asset('landingPage/js/mixitup.min.js')}}"></script>
+<script src="{{asset('landingPage/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('landingPage/js/main.js')}}"></script>
 
-  <!-- Vendor JS Files -->
-  <script src="{{asset('landingPage/assets/vendor/aos/aos.js')}}"></script>
-  <script src="{{asset('landingPage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('landingPage/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
-  <script src="{{asset('landingPage/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-  <script src="{{asset('landingPage/assets/vendor/php-email-form/validate.js')}}"></script>
-  <script src="{{asset('landingPage/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
-  <script src="{{asset('landingPage/assets/vendor/waypoints/noframework.waypoints.js')}}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{{asset('landingPage/assets/js/main.js')}}"></script>
-  @stack('scripts')
+@stack('scripts')

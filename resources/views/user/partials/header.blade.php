@@ -1,36 +1,142 @@
-<header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
+<!-- Page Preloder -->
+<div id="preloder">
+  <div class="loader"></div>
+</div>
 
-      <h1 class="logo me-auto"><a href="index.html">Sparepart Motor</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="#about">Produk</a></li>
-          <li><a class="nav-link scrollto" href="#services">Kategori</a></li>
-          {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> --}}
-          <li><a class="getstarted scrollto" href="{{route('keranjang')}}">Keranjang</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
+<!-- Humberger Begin -->
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+  <div class="humberger__menu__logo">
+      <a href="#"><img src="{{asset('landingPage/img/logo.png')}}" alt=""></a>
+  </div>
+  <div class="humberger__menu__cart">
+      <ul>
+          <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+          <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+      </ul>
+      <div class="header__cart__price">item: <span>$150.00</span></div>
+  </div>
+  <div class="humberger__menu__widget">
+      <div class="header__top__right__language">
+          <img src="{{asset('landingPage/img/language.png')}}" alt="">
+          <div>English</div>
+          <span class="arrow_carrot-down"></span>
+          <ul>
+              <li><a href="#">Spanis</a></li>
+              <li><a href="#">English</a></li>
+          </ul>
+      </div>
+      <div class="header__top__right__auth">
+          <a href="#"><i class="fa fa-user"></i> Login</a>
+      </div>
+  </div>
+  <nav class="humberger__menu__nav mobile-menu">
+      <ul>
+          <li class="active"><a href="./index.html">Home</a></li>
+          <li><a href="./shop-grid.html">Shop</a></li>
+          <li><a href="#">Pages</a>
+              <ul class="header__menu__dropdown">
+                  <li><a href="./shop-details.html">Shop Details</a></li>
+                  <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                  <li><a href="./checkout.html">Check Out</a></li>
+                  <li><a href="./blog-details.html">Blog Details</a></li>
+              </ul>
+          </li>
+          <li><a href="./blog.html">Blog</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+      </ul>
+  </nav>
+  <div id="mobile-menu-wrap"></div>
+  <div class="header__top__right__social">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-pinterest-p"></i></a>
+  </div>
+  <div class="humberger__menu__contact">
+      <ul>
+          <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+          <li>Free Shipping for all Order of $99</li>
+      </ul>
+  </div>
+</div>
+<!-- Humberger End -->
+{{-- Header Start --}}
+<header class="header">
+  <div class="header__top">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 col-md-6">
+                  <div class="header__top__left">
+                      <ul>
+                          <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                          <li>Free Shipping for all Order of $99</li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                  <div class="header__top__right">
+                      <div class="header__top__right__social">
+                          <a href="#"><i class="fa fa-facebook"></i></a>
+                          <a href="#"><i class="fa fa-twitter"></i></a>
+                          <a href="#"><i class="fa fa-linkedin"></i></a>
+                          <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                      </div>
+                      <div class="header__top__right__language">
+                          <img src="{{asset('landingPage/img/language.png')}}" alt="">
+                          <div>English</div>
+                          <span class="arrow_carrot-down"></span>
+                          <ul>
+                              <li><a href="#">Spanis</a></li>
+                              <li><a href="#">English</a></li>
+                          </ul>
+                      </div>
+                      <div class="header__top__right__auth">
+                          <a href="#"><i class="fa fa-user"></i> Login</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-3">
+              <div class="header__logo">
+                  <a href="./index.html"><img src="{{asset('landingPage/img/logo.png')}}" alt=""></a>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <nav class="header__menu">
+                  <ul>
+                      <li class="active"><a href="./index.html">Home</a></li>
+                      <li><a href="./shop-grid.html">Shop</a></li>
+                      <li><a href="#">Pages</a>
+                          <ul class="header__menu__dropdown">
+                              <li><a href="./shop-details.html">Shop Details</a></li>
+                              <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                              <li><a href="./checkout.html">Check Out</a></li>
+                              <li><a href="./blog-details.html">Blog Details</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="./blog.html">Blog</a></li>
+                      <li><a href="./contact.html">Contact</a></li>
+                  </ul>
+              </nav>
+          </div>
+          <div class="col-lg-3">
+              <div class="header__cart">
+                  <ul>
+                      <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                      <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                  </ul>
+                  <div class="header__cart__price">item: <span>$150.00</span></div>
+              </div>
+          </div>
+      </div>
+      <div class="humberger__open">
+          <i class="fa fa-bars"></i>
+      </div>
+  </div>
+</header>
+{{-- Header End --}}

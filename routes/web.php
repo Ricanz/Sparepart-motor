@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('/detail-new', function () {
+    return view('user.detailProduk');
+});
 Route::get('/show', function () {
     return view('user.show');
 });
