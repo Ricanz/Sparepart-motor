@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -21,13 +22,13 @@ class CartController extends Controller
     {
         $request->validate([
             'produk' => 'required',
-            'jumlah' => 'required',
+            // 'jumlah' => 'required',
             'user_id' => 'required',
         ]);
         Cart::create([
             'produk' => $request->produk,
-            'jumlah' => $request->jumlah,
-            'user_id' => $request->user_id,
+            'jumlah' => '1',
+            'user_id' => Auth::user()->id,
         ]);
         return redirect()->route('Cart.index')
             ->with('success', 'Cart Berhasil Ditambahkan');
