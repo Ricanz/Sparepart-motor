@@ -28,6 +28,9 @@ Route::get('/show', function () {
 Route::get('/keranjangBelanja', function () {
     return view('user.keranjang');
 });
+Route::get('/checkout', function () {
+    return view('user.checkout');
+});
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('produk', ProdukController::class);
