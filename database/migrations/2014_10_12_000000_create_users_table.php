@@ -26,8 +26,15 @@ class CreateUsersTable extends Migration
 
         DB::table('users')->insert([
             'name' => 'admin',
-            'email' => 'sparepart@gmail.com',
-            'password' => bcrypt('12345678'),
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('123123123'),
+            'role' => 'admin'
+        ]);
+        DB::table('users')->insert([
+            'name' => 'member',
+            'email' => 'member@gmail.com',
+            'password' => bcrypt('123123123'),
+            'role' => 'user'
         ]);
     }
 

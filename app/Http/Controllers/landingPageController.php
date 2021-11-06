@@ -89,11 +89,7 @@ class landingPageController extends Controller
             ->with('success', 'Produk Berhasil Ditambahkan');
     }
 
-    public function pembayaran()
-    {
-        $Pembayaran = Pembayaran::where('user_id',Auth::user()->id)->get();
-        return view('user.checkout', compact('Pembayaran'));
-    }
+    
 
     public function hapuscart($id)
     {

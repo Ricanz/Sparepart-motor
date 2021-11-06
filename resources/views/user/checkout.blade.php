@@ -84,7 +84,7 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
-                                <div class="col-lg-6">
+                                {{-- <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Fist Name<span>*</span></p>
                                         <input type="text">
@@ -95,89 +95,54 @@
                                         <p>Last Name<span>*</span></p>
                                         <input type="text">
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="checkout__input">
                                 <p>Provinsi<span>*</span></p>
-                                <input type="text" name="province_origin">
+                                <input type="text" name="provinsi_asal" id="provinsi_asal">
                             </div>
                             <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <textarea name="address" class="form-control" rows="5" placeholder="Alamat Lengkap pengiriman" ></textarea>
+                                <p>Kota Asal<span>*</span></p>
+                                <input type="text" name="kota_asal" id="kota_asal">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Alamat<span>*</span></p>
+                                <textarea name="address" class="form-control" rows="5" name="alamat" placeholder="Alamat Lengkap pengiriman"></textarea>
                             </div>
                             <div class="checkout__input">
                                 <p>Provinsi Tujuan<span>*</span></p>
-                                <select name="provinsi_id" id="provinsi_id" class="form-control">
-                                <option value="">Pilih Provinsi</option>
+                                <select name="provinsi_id" id="provinsi_id" onchange="provinsi()" class="form-control">
+                                    @foreach ($provinsi as $item)
+                                    <option value="{{$item['province_id']}}">{{$item['province']}}</option>
+                                    @endforeach
                                 </select>
+                                <input type="text" name="nama_provinsi" placeholder="nama provinsi">
                             </div>
-                            <div class="checkout__input">
-                                <input type="text" class="form-control" nama="nama_provinsi" placeholder="ini untuk menangkap nama provinsi ">
-                                </div>
                             <div class="checkout__input">
                                 <p>Kota Tujuan<span>*</span></p>
                                 <select name="kota_id" id="kota_id" class="form-control">
-                                <option value="">Pilih Kota</option>
+                                    <option value=""></option>
                                 </select>
+                                <input type="text" name="nama_kota" placeholder="nama kota">
                             </div>
                             <div class="checkout__input">
-                                <input type="text" class="form-control" nama="nama_kota" placeholder="ini untuk menangkap nama kota">
-                                </div>
-                            <div class="checkout__input">
-                                <p>Kode Pos<span>*</span></p>
-                                <input type="text" name="kode_pos">
+                                <p>Pilih Ekspedisi<span>*</span></p>
+                                <select name="kurir" id="kurir"  class="form-control">
+                                    <option value="">Pilih kurir</option>
+                                    <option value="jne">JNE</option>
+                                    <option value="tiki">TIKI</option>
+                                    <option value="pos">POS INDONESIA</option>
+                                </select>
+                                <input type="text" name="nama_kota" placeholder="nama kota">
                             </div>
                             <div class="checkout__input">
-                                <p>Total Berat<span>*</span></p>
-                                <input class="form-control" type="text" value="" id="weight" name="weight">
+                                <p>Pilih Layanan<span>*</span></p>
+                                <select name="layanan" id="layanan" class="form-control">
+                                    <option value="">Pilih layanan</option>
+                                </select>
+                                <input type="text" name="nama_kota" placeholder="nama kota">
                             </div>
-                            <div class="checkout__input">
-                                <p>Total Ongkos Kirim<span>*</span></p>
-                                <input class="form-control" type="text" id="ongkos_kirim" name="ongkos_kirim">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Total Keseluruhan<span>*</span></p>
-                                <input class="form-control" type="text" id="ongkos_kirim" name="ongkos_kirim">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Ship to a different address?
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div>
+                            
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
@@ -187,7 +152,7 @@
                                     @foreach ($Pembayaran as $item)
                                     <li>{{$item->produk->nama_produk}}<span>{{$item->jumlah*$item->produk->harga}}</span></li>
                                     @endforeach
-                                   
+
                                 </ul>
                                 <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
                                 <div class="checkout__order__total">Total <span>$750.99</span></div>
@@ -222,4 +187,60 @@
             </div>
         </div>
     </section>
+    @push('scripts')
+    {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}
+    <script>
+        function provinsi() {
+            let provinceid = document.getElementById("provinsi_id").value;
+            if (provinceid) {
+                // jika di temukan id nya kita buat eksekusi ajax GET
+                jQuery.ajax({
+                    // url yg di root yang kita buat tadi
+                    url: "/city/" + provinceid,
+                    // aksion GET, karena kita mau mengambil data
+                    type: 'GET',
+                    // type data json
+                    dataType: 'json',
+                    // jika data berhasil di dapat maka kita mau apain nih
+                    // success: function(data) {
+                    //     console.log(data);
+                    // }
+                    success: function(data) {
+                        // jika tidak ada select dr provinsi maka select kota kososng / empty
+                        $('select[name="kota_id"]').empty();
+                        // jika ada kita looping dengan each
+                        $.each(data, function(key, value) {
+                            // perhtikan dimana kita akan menampilkan data select nya, di sini saya memberi name select kota adalah kota_id
+                            $('select[name="kota_id"]').append('<option value="' + value.city_id + '" namakota="' + value.type + ' ' + value.city_name + '">' + value.type + ' ' + value.city_name + '</option>');
+                        });
+                    }
+                });
+            } 
+        }
+        // $(document).ready(function() {
+        //     //ini ketika provinsi tujuan di klik maka akan eksekusi perintah yg kita mau
+        //     //name select nama nya "provinve_id" kalian bisa sesuaikan dengan form select kalian
+        //     $('select[name="provinsi_id"]').on('change', function() {
+        //         // kita buat variable provincedid untk menampung data id select province
+        //         let provinceid = $(this).val();
+        //         //kita cek jika id di dpatkan maka apa yg akan kita eksekusi
+        //         if (provinceid) {
+        //             // jika di temukan id nya kita buat eksekusi ajax GET
+        //             jQuery.ajax({
+        //                 // url yg di root yang kita buat tadi
+        //                 url: "/city/" + provinceid,
+        //                 // aksion GET, karena kita mau mengambil data
+        //                 type: 'GET',
+        //                 // type data json
+        //                 dataType: 'json',
+        //                 // jika data berhasil di dapat maka kita mau apain nih
+        //                 success: function(data) {
+        //                     console.log(data);
+        //                 }
+        //             });
+        //         }
+        //     });
+        // });
+    </script>
+    @endpush
 </x-guest-layout>

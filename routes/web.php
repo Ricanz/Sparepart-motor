@@ -6,6 +6,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\CekOngkirController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,19 +39,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('produk', ProdukController::class);
-    Route::resource('kategori', KategoriController::class);   
+    Route::resource('kategori', KategoriController::class);
     Route::resource('cart', CartController::class);
     Route::resource('rating', RatingController::class);
     Route::resource('transaksi', TransaksiController::class);
     Route::resource('artikel', ArtikelController::class);
-    Route::get('province','CheckoutController@get_province')->name('province');
+    Route::get('province', 'CheckoutController@get_province')->name('province');
     Route::get('/dashboard', function () {
         return view('dashboard');
     });
 });
 
 
-require __DIR__.'/auth.php';
+
+
+require __DIR__ . '/auth.php';
 
 
 // Route::get('/des', function () {
@@ -66,7 +70,7 @@ Route::get('/', [landingPageController::class, 'produk'])->name('landingpage');
 
 
 Route::POST('/checkout', [landingPageController::class, 'checkout'])->name('checkout');
-Route::get('/bayar', [landingPageController::class, 'pembayaran'])->name('bayar');
+Route::get('/bayar', [CekOngkirController::class, 'pembayaran'])->name('bayar');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/hapus/{id}/cart', [landingPageController::class, 'hapuscart'])->name('hapuscart');
@@ -75,3 +79,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/show/{id}/produk', [landingPageController::class, 'showproduk'])->name('detail-produk');
     Route::get('/keranjang', [landingPageController::class, 'keranjang'])->name('keranjang');
 });
+
+Route::get('province', [CekOngkirController::class, 'get_province'])->name('get_province');
+Route::get('city/{id}', [CekOngkirController::class, 'get_city'])->name('get_city');
+Route::get('/origin={city_origin}&destination={city_destination}&weight={weight}&courier={courier}', [CekOngkirController::class, 'get_ongkir']);

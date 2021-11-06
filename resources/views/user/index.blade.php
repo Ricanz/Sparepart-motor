@@ -115,7 +115,7 @@
                 </div>
             </div>
 
-            <div class="row featured__filter">
+            <div class="row featured__filter" id="#produk">
                 @foreach ($produk as $item)
                 {{-- {{dd($item->kategori_id)}} --}}
                 <div class="col-lg-3 col-md-4 col-sm-6 mix {{$item->kategori->kategori}}">
