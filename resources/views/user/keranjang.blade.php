@@ -98,7 +98,9 @@
                                 {{-- {{dd($produk->where('id'))}} --}}
                                 <li>Total <span id="">{{$jumlahtotal}}</span></li>
                             </ul>
-                            <button class="primary-btn">PROCEED TO CHECKOUT</button>
+                            <button class="primary-btn" @if ($Cart->count() == 0)
+                            disabled
+                            @endif>PROCEED TO CHECKOUT</button>
                         </div>
                     </div>
             </form>
