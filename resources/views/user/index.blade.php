@@ -119,11 +119,14 @@
                 @foreach ($produk as $item)
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{ $item->foto }}">
+                        <div class="featured__item__pic set-bg" data-setbg="{{ asset($item->foto) }}">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a href="{{route('detail-produk',$item->id)}}"><i class="fa fa-retweet"></i></a></li>
+                                <form method="POST" action="{{url('tambah-cart',$item->id)}}">
+                                    @csrf
+                                <li><button type="submit" href=""><i class="fa fa-shopping-cart"></i></button></li>
+                                </form>
                             </ul>
                         </div>
                         <div class="featured__item__text">

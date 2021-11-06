@@ -94,6 +94,8 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
+                <form action="{{route('tambahcart')}}" method="POST">
+                    @csrf
                 <div class="product__details__text">
                     <h3>{{$produk->nama_produk}}</h3>
                     <div class="product__details__rating">
@@ -112,11 +114,11 @@
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
-                                <input type="text" value="1">
+                                <input type="text" name="jumlah" value="1">
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
+                    <button type="submit" class="primary-btn">ADD TO CARD</button>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Availability</b> <span>In Stock</span></li>
@@ -132,6 +134,7 @@
                         </li>
                     </ul>
                 </div>
+                @csrf
             </div>
             <div class="col-lg-12">
                 <div class="product__details__tab">

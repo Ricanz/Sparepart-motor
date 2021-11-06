@@ -24,14 +24,26 @@ class landingPageController extends Controller
         return view('user.detailProduk', compact('produk'));
     }
 
+    public function instantcart(Request $request, $id)
+    {
+        Cart::create([
+            'produk_id' => $id,
+            'jumlah' => '1',
+            'user_id' => Auth::user()->id,
+        ]);
+        return redirect()->route('landingpage')
+            ->with('success', 'Produk Berhasil Ditambahkan');
+        // return view('user.detailProduk',$request->produk_id, compact('produk'));
+    }
+
     public function tambahcart(Request $request)
     {
         Cart::create([
             'produk_id' => $request->produk_id,
-            'jumlah' => '1',
+            'jumlah' => $request->jumlah,
             'user_id' => Auth::user()->id,
         ]);
-        return redirect()->route('detail-produk',$request->produk_id)
+        return redirect()->route('landingpage')
             ->with('success', 'Produk Berhasil Ditambahkan');
         // return view('user.detailProduk',$request->produk_id, compact('produk'));
     }

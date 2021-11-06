@@ -55,13 +55,19 @@ require __DIR__.'/auth.php';
 // });
 
 // Route::get('/home', landingPageController::class, 'produk');
-Route::get('/', [landingPageController::class, 'produk']);
+Route::get('/', [landingPageController::class, 'produk'])->name('landingpage');
 // Route::get('home', 'landingPageController@produk');
 
-Route::get('/show/{id}/produk', [landingPageController::class, 'showproduk'])->name('detail-produk');
-Route::post('/tambah-cart', [landingPageController::class, 'tambahcart']);
 
-Route::get('/cart', [landingPageController::class, 'keranjang'])->name('keranjang');
+
+
+Route::get('/keranjang', [landingPageController::class, 'keranjang'])->name('keranjang');
 
 Route::POST('/checkout', [landingPageController::class, 'checkout'])->name('checkout');
 Route::get('/bayar', [landingPageController::class, 'pembayaran'])->name('bayar');
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/tambah-cart/{id}', [landingPageController::class, 'instantcart']);
+    Route::post('/tambah-cart', [landingPageController::class, 'tambahcart'])->name('tambahcart');
+    Route::get('/show/{id}/produk', [landingPageController::class, 'showproduk'])->name('detail-produk');
+});
