@@ -106,18 +106,19 @@
                     </div>
                     <div class="featured__controls">
                         <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
+                            @foreach ($kategori as $item)
+                            <li class="" data-filter=".{{$item->kategori}}">{{$item->kategori}}</li>
+                            @endforeach
+                            
                         </ul>
                     </div>
                 </div>
             </div>
+
             <div class="row featured__filter">
                 @foreach ($produk as $item)
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                {{-- {{dd($item->kategori_id)}} --}}
+                <div class="col-lg-3 col-md-4 col-sm-6 mix {{$item->kategori->kategori}}">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{ asset($item->foto) }}">
                             <ul class="featured__item__pic__hover">

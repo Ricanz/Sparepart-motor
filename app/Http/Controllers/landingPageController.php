@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Produk;
 use App\Models\Cart;
+use App\Models\Kategori;
 use App\Models\Pembayaran;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
@@ -15,7 +16,9 @@ class landingPageController extends Controller
     public function produk()
     {
         $produk = Produk::all();
-        return view('user.index', compact('produk'));
+        $Cart = Cart::all();
+        $kategori = Kategori::all();
+        return view('user.index', compact('produk','kategori','Cart'));
     }
 
     public function showproduk($id)

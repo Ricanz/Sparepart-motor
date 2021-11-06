@@ -128,7 +128,11 @@
               <div class="header__cart">
                   <ul>
                       <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                      <li><a href="{{url('keranjang')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                      <li><a href="{{url('keranjang')}}"><i class="fa fa-shopping-bag"></i> 
+                        {{-- {{dd($Cart)}} --}}
+                        @auth                            
+                            <span>{{$Cart->where('user_id',Auth::user()->id)->count()}}</span></a></li>
+                        @endauth
                   </ul>
                   <div class="header__cart__price">item: <span>$150.00</span></div>
               </div>
