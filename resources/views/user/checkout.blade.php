@@ -98,25 +98,46 @@
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text">
+                                <p>Provinsi<span>*</span></p>
+                                <input type="text" name="province_origin">
                             </div>
                             <div class="checkout__input">
                                 <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
+                                <textarea name="address" class="form-control" rows="5" placeholder="Alamat Lengkap pengiriman" ></textarea>
                             </div>
                             <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text">
+                                <p>Provinsi Tujuan<span>*</span></p>
+                                <select name="provinsi_id" id="provinsi_id" class="form-control">
+                                <option value="">Pilih Provinsi</option>
+                                </select>
                             </div>
                             <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text">
+                                <input type="text" class="form-control" nama="nama_provinsi" placeholder="ini untuk menangkap nama provinsi ">
+                                </div>
+                            <div class="checkout__input">
+                                <p>Kota Tujuan<span>*</span></p>
+                                <select name="kota_id" id="kota_id" class="form-control">
+                                <option value="">Pilih Kota</option>
+                                </select>
                             </div>
                             <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text">
+                                <input type="text" class="form-control" nama="nama_kota" placeholder="ini untuk menangkap nama kota">
+                                </div>
+                            <div class="checkout__input">
+                                <p>Kode Pos<span>*</span></p>
+                                <input type="text" name="kode_pos">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Total Berat<span>*</span></p>
+                                <input class="form-control" type="text" value="" id="weight" name="weight">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Total Ongkos Kirim<span>*</span></p>
+                                <input class="form-control" type="text" id="ongkos_kirim" name="ongkos_kirim">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Total Keseluruhan<span>*</span></p>
+                                <input class="form-control" type="text" id="ongkos_kirim" name="ongkos_kirim">
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">

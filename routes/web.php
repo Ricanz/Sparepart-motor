@@ -41,6 +41,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('cart', CartController::class);
     Route::resource('rating', RatingController::class);
     Route::resource('transaksi', TransaksiController::class);
+    Route::resource('artikel', ArtikelController::class);
+    Route::get('province','CheckoutController@get_province')->name('province');
     Route::get('/dashboard', function () {
         return view('dashboard');
     });
