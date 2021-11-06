@@ -27,6 +27,7 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Kategori</th>
                                     <th scope="col">Deskripsi</th>
+                                    <th scope="col">Foto</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -36,6 +37,9 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $item->kategori }}</td>
                                     <td>{{ $item->deskripsi }}</td>
+                                    <td>
+                                        <img src
+                                        {{ $item->foto }}</td>
                                     <td>
                                         <a href="{{ route('kategori.edit', $item->id) }}">Edit</a>
                                         <form id="form-delete" action="{{ route('kategori.destroy', $item->id) }}" method="POST">

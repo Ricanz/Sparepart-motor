@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class KategoriController extends Controller
 {
     public function index()
@@ -22,10 +22,18 @@ class KategoriController extends Controller
         $request->validate([
             'kategori' => 'required',
             'deskripsi' => 'required',
+            'foto' => 'required',
         ]);
+
+        $date = date("his");
+        $extension = $request->file('foto')->extension();
+        $file_name = "Kategori_$date.$extension";
+        $path = $request->file('foto')->storeAs('public/Kategori', $file_name);
+
         Kategori::create([
             'kategori' => $request->kategori,
             'deskripsi' => $request->deskripsi,
+            'foto' => $file_name,
         ]);
         return redirect()->route('kategori.index')
             ->with('success', 'Kategori Berhasil Ditambahkan');
@@ -50,6 +58,18 @@ class KategoriController extends Controller
         $kategori = Kategori::findOrFail($id);
         $kategori->kategori = $request->kategori;
         $kategori->deskripsi = $request->deskripsi;
+        if ($request->has("foto")) {
+
+            Storage::delete("public/Kategori/$kategori->foto");
+
+            $date = date("his");
+            $extension = $request->file('foto')->extension();
+            $file_name = "Kategori_$date.$extension";
+            $path = $request->file('foto')->storeAs('public/Kategori', $file_name);
+            
+            $kategori->foto = $file_name;
+        }
+
         $kategori->save();
 
         return redirect()->route('kategori.index')
@@ -58,8 +78,9 @@ class KategoriController extends Controller
 
     public function destroy($id)
     {
-        Kategori::where('id', $id)->delete();
-
+        $Kategori = Kategori::findOrFail($id);
+        Storage::delete("public/Kategori/$Kategori->foto");
+        $Kategori->delete();
         return redirect()->route('kategori.index')
             ->with('delete', 'Kategori Berhasil Dihapus');
     }

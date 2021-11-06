@@ -31,6 +31,17 @@
                                 <input type="text" name="deskripsi" id="" class="form-control" value="{{ $kategori->deskripsi }}">
                                 {{-- <textarea name="deskripsi" id="kategori" cols="13" class="form-control"></textarea> --}}
                             </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Foto Kategori</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" name="foto" class="custom-file-input" id="inputGroupFile01">
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>  
                             <div>
                                 <button type="submit" class="btn waves-effect waves-light btn-success">Ubah Kategori</button>
                             </div>

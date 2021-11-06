@@ -33,20 +33,15 @@ class ProdukController extends Controller
             'stok' => 'required', 
         ]);
 
-        $upload = $request->foto;
-        if (isset($request->foto)) {
-            $extention = $request->foto->extension();
-            $file_name = time() . '.' . $extention;
-            $txt = 'storage/images/'. $file_name;
-            $request->foto->storeAs('public/images', $file_name);
-        } else {
-            $file_name = null;
-        }
+        $date = date("his");
+        $extension = $request->file('foto')->extension();
+        $file_name = "Produk_$date.$extension";
+        $path = $request->file('foto')->storeAs('public/Produk', $file_name);
 
         Produk::create([
             'nama_produk' => $request->nama_produk,
             'deskripsi' => $request->deskripsi,
-            'foto' => $txt,
+            'foto' => $file_name,
             'harga' => $request->harga,
             'stok' => $request->stok,
             'kategori_id' => $request->kategori_id,
@@ -84,7 +79,7 @@ class ProdukController extends Controller
 
         if ($request->has("foto")) {
 
-            Storage::delete("public/Produk/$Produk->struktur_organisasi");
+            Storage::delete("public/Produk/$Produk->foto");
 
             $date = date("his");
             $extension = $request->file('foto')->extension();
@@ -107,8 +102,9 @@ class ProdukController extends Controller
 
     public function destroy($id)
     {
-        Produk::findOrFail($id)->delete();
-
+        $Produk = Produk::findOrFail($id);
+        Storage::delete("public/Produk/$Produk->foto");
+        $Produk->delete();
         return redirect()->route('produk.index')
             ->with('delete', 'Produk Berhasil Dihapus');
     }
