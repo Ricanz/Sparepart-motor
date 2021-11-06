@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 @include('user.partials.head')
 
 <body>
+    
 
-  <!-- ======= Header ======= -->
-  @include('user.partials.header')
+    <!-- Header Section Begin -->
+    @include('user.partials.header')
+    <!-- Header Section End -->
+
+    {{ $slot }}
+
+    <!-- Footer Section Begin -->
+    @include('user.partials.footer')
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    @include('user.partials.scripts')
+    
 
 
-  <main id="main">
-
-    <!-- ======= Cliens Section ======= -->
-    {{$slot}}
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  @include('user.partials.footer')
-
-  @include('user.partials.scripts')
 
 </body>
 

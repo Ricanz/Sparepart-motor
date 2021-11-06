@@ -19,7 +19,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form class="mt-4" action="{{ route('kategori.store') }}" method="POST">
+                        <form class="mt-4" action="{{ route('kategori.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="">Nama Kategori</label>
@@ -30,6 +30,17 @@
                                 <input type="text" name="deskripsi" id="" class="form-control">
                                 {{-- <textarea name="deskripsi" id="kategori" cols="13" class="form-control"></textarea> --}}
                             </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Foto Kategori</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" name="foto" class="custom-file-input" id="inputGroupFile01">
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>  
                             <div>
                                 <button type="submit" class="btn waves-effect waves-light btn-success">Tambah Kategori</button>
                             </div>

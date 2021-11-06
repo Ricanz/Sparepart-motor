@@ -10,12 +10,12 @@ class CartController extends Controller
     public function index()
     {
         $Cart = Cart::all();
-        return view('admin.Cart.index', compact('Cart'));
+        return view('admin.cart.index', compact('Cart'));
     }
 
     public function create()
     {
-        return view('admin.Cart.tambah');
+        return view('admin.cart.tambah');
     }
 
     public function store(Request $request)
@@ -30,14 +30,14 @@ class CartController extends Controller
             'jumlah' => '1',
             'user_id' => Auth::user()->id,
         ]);
-        return redirect()->route('Cart.index')
+        return redirect()->route('cart.index')
             ->with('success', 'Cart Berhasil Ditambahkan');
     }
 
     public function show($id)
     {
         $Carts = Cart::where('id', $id)->first();
-        return view('admin.Cart.show', compact('Cart'))
+        return view('admin.cart.show', compact('Cart'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -45,7 +45,7 @@ class CartController extends Controller
     public function edit($id)
     {
         $Cart = Cart::find($id);
-        return view('admin.Cart.edit',compact('Cart','kode'));
+        return view('admin.cart.edit',compact('Cart','kode'));
     }
 
 
@@ -57,7 +57,7 @@ class CartController extends Controller
         $Cart->user_id = $request->user_id;
         $Cart->save();
 
-        return redirect()->route('Cart.index')
+        return redirect()->route('cart.index')
         ->with('edit', 'Cart Berhasil Diedit');
     }
 
@@ -65,7 +65,8 @@ class CartController extends Controller
     {
         Cart::where('id', $id)->delete();
 
-        return redirect()->route('Cart.index')
+        return redirect()->route('cart.index')
             ->with('delete', 'Cart Berhasil Dihapus');
     }
+    
 }

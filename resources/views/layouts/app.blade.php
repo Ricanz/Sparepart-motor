@@ -37,19 +37,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@include('partials.head')
+@include('admin.partials.head')
 {{-- @include('notify::components.notify')
 @notifyCss --}}
 <body class="g-sidenav-show  bg-gray-100">
 
   <!-- sidebar -->
-  @include('partials.sidebar')
+  @include('admin.partials.sidebar')
   <!-- end sidebar -->
 
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
 
   <!-- Navbar -->
-    @include('partials.header')
+    @include('admin.partials.header')
   <!-- End Navbar -->
 
   <!-- container -->
@@ -62,7 +62,7 @@
        <!-- end isi konten -->
 
       <!-- footer -->
-        @include('partials.footer')
+        @include('admin.partials.footer')
       <!-- end isi footer -->
 
     </div>
@@ -72,7 +72,7 @@
   </main>
   
 
-  @include('partials.scripts')
+  @include('admin.partials.scripts')
   {{-- @notifyJs --}}
 </body>
 
