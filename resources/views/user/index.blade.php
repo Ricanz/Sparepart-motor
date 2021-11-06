@@ -125,7 +125,11 @@
                                 <li><a href="{{route('detail-produk',$item->id)}}"><i class="fa fa-retweet"></i></a></li>
                                 <form method="POST" action="{{url('tambah-cart',$item->id)}}">
                                     @csrf
-                                <li><button type="submit" href=""><i class="fa fa-shopping-cart"></i></button></li>
+                                <li>
+                                    <a>
+                                    <button type="submit" href=""><i class="fa fa-shopping-cart"></i></button>
+                                    </a>
+                                </li>
                                 </form>
                             </ul>
                         </div>

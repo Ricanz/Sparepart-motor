@@ -22,18 +22,18 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/detail-new', function () {
-    return view('user.detailProduk');
-});
-Route::get('/show', function () {
-    return view('user.show');
-});
-Route::get('/keranjangBelanja', function () {
-    return view('user.keranjang');
-});
-Route::get('/checkout', function () {
-    return view('user.checkout');
-});
+// Route::get('/detail-new', function () {
+//     return view('user.detailProduk');
+// });
+// Route::get('/show', function () {
+//     return view('user.show');
+// });
+// Route::get('/keranjangBelanja', function () {
+//     return view('user.keranjang');
+// });
+// Route::get('/checkout', function () {
+//     return view('user.checkout');
+// });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('produk', ProdukController::class);
@@ -67,6 +67,7 @@ Route::POST('/checkout', [landingPageController::class, 'checkout'])->name('chec
 Route::get('/bayar', [landingPageController::class, 'pembayaran'])->name('bayar');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/hapus/{id}/cart', [landingPageController::class, 'hapuscart'])->name('hapuscart');
     Route::post('/tambah-cart/{id}', [landingPageController::class, 'instantcart']);
     Route::post('/tambah-cart', [landingPageController::class, 'tambahcart'])->name('tambahcart');
     Route::get('/show/{id}/produk', [landingPageController::class, 'showproduk'])->name('detail-produk');

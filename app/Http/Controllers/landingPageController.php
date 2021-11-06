@@ -51,7 +51,15 @@ class landingPageController extends Controller
     public function keranjang()
     {
         $Cart = Cart::where('user_id',Auth::user()->id)->get();
-        return view('user.keranjang', compact('Cart'));
+        $Cart1 = Cart::where('user_id',Auth::user()->id);
+        $produk = Produk::all()->SUM('harga');
+        $jumlahtotal = $Cart->SUM('jumlah');
+        // dd($produk->harga);
+        // $hargatotal = Produk::where('user_id',Auth::user()->id)->get();
+        // $produk = Produk::find($Cart1->produk_id)->get();
+        // dd($produk);
+        // $totaljumlah = $Cart->produk->harga*$Cart->jumlah;
+        return view('user.keranjang', compact('Cart','jumlahtotal','produk','Cart1'));
     }
 
     public function checkout(Request $request)
@@ -82,6 +90,14 @@ class landingPageController extends Controller
     {
         $Pembayaran = Pembayaran::where('user_id',Auth::user()->id)->get();
         return view('user.checkout', compact('Pembayaran'));
+    }
+
+    public function hapuscart($id)
+    {
+        Cart::where('id', $id)->delete();
+
+        return redirect()->route('keranjang')
+            ->with('delete', 'Cart Berhasil Dihapus');
     }
 
 }

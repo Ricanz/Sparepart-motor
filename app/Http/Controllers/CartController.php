@@ -67,4 +67,5 @@ class CartController extends Controller
         return redirect()->route('cart.index')
             ->with('delete', 'Cart Berhasil Dihapus');
     }
+    
 }
