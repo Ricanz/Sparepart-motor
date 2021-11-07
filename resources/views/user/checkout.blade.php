@@ -94,7 +94,7 @@
                             <div class="checkout__input">
                                 <p>Provinsi Tujuan<span>*</span></p>
                                 <select name="provinsi_id" id="provinsi_id" onchange="provinsi()" class="form-control">
-                                    <option value="">--- Pilih Provinsi ---</option>
+                                    <option value="">Pilih Provinsi</option>
                                     @foreach ($provinsi as $item)
                                     <option value="{{$item['province_id']}}">{{$item['province']}}</option>
                                     @endforeach

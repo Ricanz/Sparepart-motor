@@ -24,18 +24,18 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('123123123'),
-            'role' => 'admin'
-        ]);
-        DB::table('users')->insert([
-            'name' => 'member',
-            'email' => 'member@gmail.com',
-            'password' => bcrypt('123123123'),
-            'role' => 'user'
-        ]);
+        // DB::table('users')->insert([
+        //     'name' => 'admin',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => bcrypt('123123123'),
+        //     'role' => 'admin'
+        // ]);
+        // DB::table('users')->insert([
+        //     'name' => 'member',
+        //     'email' => 'member@gmail.com',
+        //     'password' => bcrypt('123123123'),
+        //     'role' => 'user'
+        // ]);
     }
 
     /**
