@@ -83,27 +83,9 @@
                 <form action="#">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
-                            <div class="row">
-                                {{-- <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div> --}}
-                            </div>
+
                             <div class="checkout__input">
-                                <p>Provinsi<span>*</span></p>
-                                <input type="text" name="provinsi_asal" id="provinsi_asal">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Kota Asal<span>*</span></p>
-                                <input type="text" name="kota_asal" id="kota_asal">
+                                <input type="hidden" name="kota_asal" value="154" id="kota_asal">  {{--pake--}}
                             </div>
                             <div class="checkout__input">
                                 <p>Alamat<span>*</span></p>
@@ -112,37 +94,42 @@
                             <div class="checkout__input">
                                 <p>Provinsi Tujuan<span>*</span></p>
                                 <select name="provinsi_id" id="provinsi_id" onchange="provinsi()" class="form-control">
+                                    <option value="">--- Pilih Provinsi ---</option>
                                     @foreach ($provinsi as $item)
                                     <option value="{{$item['province_id']}}">{{$item['province']}}</option>
                                     @endforeach
                                 </select>
-                                <input type="text" name="nama_provinsi" placeholder="nama provinsi">
+                                {{-- <input type="text" name="nama_provinsi" placeholder="nama provinsi"> --}}
                             </div>
                             <div class="checkout__input">
                                 <p>Kota Tujuan<span>*</span></p>
                                 <select name="kota_id" id="kota_id" class="form-control">
                                     <option value=""></option>
                                 </select>
-                                <input type="text" name="nama_kota" placeholder="nama kota">
+                                {{-- <input type="text" name="nama_kota" placeholder="nama kota"> --}}
                             </div>
                             <div class="checkout__input">
                                 <p>Pilih Ekspedisi<span>*</span></p>
-                                <select name="kurir" id="kurir"  class="form-control">
+                                <select name="kurir" id="kurir" class="form-control">
                                     <option value="">Pilih kurir</option>
                                     <option value="jne">JNE</option>
                                     <option value="tiki">TIKI</option>
                                     <option value="pos">POS INDONESIA</option>
                                 </select>
-                                <input type="text" name="nama_kota" placeholder="nama kota">
+                                {{-- <input type="text" name="nama_kota" placeholder="nama kota"> --}}
                             </div>
                             <div class="checkout__input">
                                 <p>Pilih Layanan<span>*</span></p>
                                 <select name="layanan" id="layanan" class="form-control">
                                     <option value="">Pilih layanan</option>
                                 </select>
-                                <input type="text" name="nama_kota" placeholder="nama kota">
+                                {{-- <input type="text" name="nama_kota" placeholder="nama kota"> --}}
                             </div>
-                            
+                            <div class="checkout__input">
+                                <p>Berat<span>*</span></p>
+                                <input type="text" name="berat" value="200" id="berat">
+                            </div>
+
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
@@ -215,32 +202,45 @@
                         });
                     }
                 });
-            } 
+            }
         }
-        // $(document).ready(function() {
-        //     //ini ketika provinsi tujuan di klik maka akan eksekusi perintah yg kita mau
-        //     //name select nama nya "provinve_id" kalian bisa sesuaikan dengan form select kalian
-        //     $('select[name="provinsi_id"]').on('change', function() {
-        //         // kita buat variable provincedid untk menampung data id select province
-        //         let provinceid = $(this).val();
-        //         //kita cek jika id di dpatkan maka apa yg akan kita eksekusi
-        //         if (provinceid) {
-        //             // jika di temukan id nya kita buat eksekusi ajax GET
-        //             jQuery.ajax({
-        //                 // url yg di root yang kita buat tadi
-        //                 url: "/city/" + provinceid,
-        //                 // aksion GET, karena kita mau mengambil data
-        //                 type: 'GET',
-        //                 // type data json
-        //                 dataType: 'json',
-        //                 // jika data berhasil di dapat maka kita mau apain nih
-        //                 success: function(data) {
-        //                     console.log(data);
-        //                 }
-        //             });
-        //         }
-        //     });
-        // });
+
+
+        $('select[name="kurir"]').on('change', function() {
+            // kita buat variable untuk menampung data data dari  inputan
+            // name city_origin di dapat dari input text name city_origin
+            let origin = $("input[name=kota_asal]").val();
+            // name kota_id di dapat dari select text name kota_id
+            let destination = $("select[name=kota_id]").val();
+            // name kurir di dapat dari select text name kurir
+            let courier = $("select[name=kurir]").val();
+            // name weight di dapat dari select text name weight
+            let weight = $("input[name=berat]").val();
+            // alert(courier);
+            if (courier) {
+                jQuery.ajax({
+                    url: "/origin=" + origin + "&destination=" + destination + "&weight=" + weight + "&courier=" + courier,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        $('select[name="layanan"]').empty();
+                        // ini untuk looping data result nya
+                        $.each(data, function(key, value) {
+                            // ini looping data layanan misal jne reg, jne oke, jne yes
+                            $.each(value.costs, function(key1, value1) {
+                                // ini untuk looping cost nya masing masing
+                                // silahkan pelajari cara menampilkan data json agar lebi paham
+                                $.each(value1.cost, function(key2, value2) {
+                                    $('select[name="layanan"]').append('<option value="' + key + '">' + value1.service + '-' + value1.description + '-' + value2.value + '</option>');
+                                });
+                            });
+                        });
+                    }
+                });
+            } else {
+                $('select[name="layanan"]').empty();
+            }
+        });
     </script>
     @endpush
 </x-guest-layout>
