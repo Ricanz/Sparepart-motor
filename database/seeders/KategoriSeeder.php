@@ -15,11 +15,13 @@ class KategoriSeeder extends Seeder
     public function run()
     {
         Kategori::create([
+            'id' => '1',
             'kategori' => 'Elektronik',
             'deskripsi' => 'Garansi 3 bulan'
         ]);
 
         Kategori::create([
+            'id' => '2',
             'kategori' => 'Barang',
             'deskripsi' => 'Garansi 3 bulan'
         ]);
