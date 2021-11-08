@@ -27,6 +27,11 @@
                                 class="hide-menu">Kategori
                             </span></a>
                         </li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('artikel.index') }}"
+                            aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
+                                class="hide-menu">Artikel
+                            </span></a>
+                        </li>
                         <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('cart.index') }}"
                             aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
                                 class="hide-menu">Cart
