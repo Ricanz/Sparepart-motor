@@ -7,6 +7,7 @@ use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\CekOngkirController;
+use App\Http\Controllers\ArtikelController;
 
 use Illuminate\Support\Facades\Route;
 
