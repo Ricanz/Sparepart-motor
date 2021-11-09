@@ -66,13 +66,12 @@
             <div class="row">
                 <div class="categories__slider owl-carousel">
                     @foreach ($kategori as $item)
-                        
-                    @endforeach
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="{{asset("storage/Kategori/$item->foto")}}">
                             <h5><a href="#">{{$item->kategori}}</a></h5>
                         </div>
                     </div>
+                    @endforeach                    
                 </div>
             </div>
         </div>
