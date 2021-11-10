@@ -19,8 +19,9 @@ class landingPageController extends Controller
         $produk = Produk::all();
         $Cart = Cart::all();
         $kategori = Kategori::all();
+        $artikel = Kategori::paginate(6);
         $wishlist = Wishlist::all();
-        return view('user.index', compact('produk','kategori','Cart','wishlist'));
+        return view('user.index', compact('produk','kategori','Cart','wishlist','artikel'));
     }
 
 
@@ -122,9 +123,9 @@ class landingPageController extends Controller
 
     public function sukuCadang()
     {
-        
+        $produk = Produk::simplePaginate(9);
         $sukuCadang = Produk::simplePaginate(4);
-        return view('user.produk', compact('sukuCadang'));
+        return view('user.produk', compact('sukuCadang','produk'));
 
     }
 

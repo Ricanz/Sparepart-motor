@@ -115,8 +115,8 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="{{url('/')}}">Home</a></li>
-                        <li><a href="#">Produk</a></li>
+                        <li  class="{{ request()->is('/*') ? 'active' : ''}}"><a href="{{url('/')}}">Home</a></li>
+                        <li class="{{ request()->is('suku-cadang*') ? 'active' : ''}}"><a href="{{url('suku-cadang')}}">Produk</a></li>
                         <li><a href="#">Kategori</a>
                             <ul class="header__menu__dropdown">
                                 @foreach ($Kategori as $item)
@@ -124,15 +124,15 @@
                                 @endforeach               
                             </ul>
                         </li>
-                        <li><a href="{{url('berita')}}">Berita</a></li>
-                        <li><a href="{{url('kontak')}}">Contact</a></li>
+                        <li  class="{{ request()->is('berita*') ? 'active' : ''}}"><a href="{{url('berita')}}">Berita</a></li>
+                        <li class="{{ request()->is('kontak*') ? 'active' : ''}}"><a href="{{url('kontak')}}">Contact</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li>
+                        <li >
                             <a href="{{url('wishlist')}}"><i class="fa fa-heart"></i>
                             @auth
                                 <span>{{$Wishlist->where('user_id',Auth::user()->id)->count()}}</span>

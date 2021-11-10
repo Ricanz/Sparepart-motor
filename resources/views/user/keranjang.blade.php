@@ -119,7 +119,8 @@
             // alert(jumlah,harga)
             // let ;
             // $("#hasil").html(total);
-            document.getElementById(`total_${i}`).innerHTML = jumlah * harga;
+            var total = jumlah * harga
+            document.getElementById(`total_${i}`).innerHTML = total;
             // document.getElementById(`totall`).innerHTML = jumlah * harga;
         }
         // $("#hasil").html(total);
