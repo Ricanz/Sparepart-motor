@@ -120,5 +120,13 @@ class landingPageController extends Controller
             ->with('delete', 'Cart Berhasil Dihapus');
     }
 
+    public function sukuCadang()
+    {
+        
+        $sukuCadang = Produk::simplePaginate(4);
+        return view('user.produk', compact('sukuCadang'));
+
+    }
+
 
 }

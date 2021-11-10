@@ -63,8 +63,13 @@ Route::get('/kontak', function () {
 Route::get('/berita', function () {
     return view('user.berita');
 });
+// Route::get('/suku-cadang', function () {
+//     return view('user.produk');
+// });
+
 // Route::get('/home', landingPageController::class, 'produk');
 Route::get('/', [landingPageController::class, 'produk'])->name('landingpage');
+Route::get('/suku-cadang', [landingPageController::class, 'sukuCadang'])->name('produk');
 // Route::get('home', 'landingPageController@produk');
 
 
