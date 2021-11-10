@@ -124,7 +124,7 @@
                                 @endforeach               
                             </ul>
                         </li>
-                        <li><a href="#">Berita</a></li>
+                        <li><a href="{{url('berita')}}">Berita</a></li>
                         <li><a href="{{url('kontak')}}">Contact</a></li>
                     </ul>
                 </nav>

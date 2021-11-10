@@ -104,13 +104,18 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{ asset("storage/Produk/$item->foto") }}">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <form method="POST" action="{{route('tambahwishlist',$item->id)}}">
+                                    @csrf
+                                    <li>
+                                        <button type="submit" ><i class="fa fa-heart"></i>
+                                    </li>
+                                </form>                                
                                 <li><a href="{{route('detail-produk',$item->id)}}"><i class="fa fa-retweet"></i></a></li>
                                 <form method="POST" action="{{url('tambah-cart',$item->id)}}">
                                     @csrf
                                 <li>
                                     <a>
-                                    <button type="submit" href=""><i class="fa fa-shopping-cart"></i></button>
+                                    <button type="submit" ><i class="fa fa-shopping-cart"></i></button>
                                     </a>
                                 </li>
                                 </form>

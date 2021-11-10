@@ -60,7 +60,9 @@ require __DIR__ . '/auth.php';
 Route::get('/kontak', function () {
     return view('user.kontak');
 });
-
+Route::get('/berita', function () {
+    return view('user.berita');
+});
 // Route::get('/home', landingPageController::class, 'produk');
 Route::get('/', [landingPageController::class, 'produk'])->name('landingpage');
 // Route::get('home', 'landingPageController@produk');
@@ -77,6 +79,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/hapus/{id}/cart', [landingPageController::class, 'hapuscart'])->name('hapuscart');
     Route::post('/tambah-cart/{id}', [landingPageController::class, 'instantcart']);
     Route::post('/tambah-cart', [landingPageController::class, 'tambahcart'])->name('tambahcart');
+    Route::post('/tambah-wishlist/{id}', [landingPageController::class, 'tambahwishlist'])->name('tambahwishlist');
     Route::get('/show/{id}/produk', [landingPageController::class, 'showproduk'])->name('detail-produk');
     Route::get('/keranjang', [landingPageController::class, 'keranjang'])->name('keranjang');
 });

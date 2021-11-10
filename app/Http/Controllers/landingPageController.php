@@ -23,12 +23,6 @@ class landingPageController extends Controller
         return view('user.index', compact('produk','kategori','Cart','wishlist'));
     }
 
-    public function datawishlist()
-    {
-        $wishlist = Wishlist::where('user_id', Auth::user()->id)->get();
-
-        return view('user.wishlist', compact('wishlist'));
-    }
 
     public function showproduk($id)
     {
@@ -53,6 +47,24 @@ class landingPageController extends Controller
         Cart::create([
             'produk_id' => $request->produk_id,
             'jumlah' => $request->jumlah,
+            'user_id' => Auth::user()->id,
+        ]);
+        return redirect()->route('landingpage')
+            ->with('success', 'Produk Berhasil Ditambahkan');
+        // return view('user.detailProduk',$request->produk_id, compact('produk'));
+    }
+
+    public function datawishlist()
+    {
+        $wishlist = Wishlist::where('user_id', Auth::user()->id)->get();
+
+        return view('user.wishlist', compact('wishlist'));
+    }
+
+    public function tambahwishlist(Request $request, $id)
+    {
+        Wishlist::create([
+            'produk_id' => $id,
             'user_id' => Auth::user()->id,
         ]);
         return redirect()->route('landingpage')
