@@ -60,9 +60,13 @@ require __DIR__ . '/auth.php';
 Route::get('/kontak', function () {
     return view('user.kontak');
 });
+// Route::get('/suku-cadang', function () {
+//     return view('user.produk');
+// });
 
 // Route::get('/home', landingPageController::class, 'produk');
 Route::get('/', [landingPageController::class, 'produk'])->name('landingpage');
+Route::get('/suku-cadang', [landingPageController::class, 'sukuCadang'])->name('produk');
 // Route::get('home', 'landingPageController@produk');
 
 
