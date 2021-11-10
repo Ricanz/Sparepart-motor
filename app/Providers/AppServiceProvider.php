@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 use App\Models\Cart;
+use App\Models\Wishlist;
+use App\Models\Kategori;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 class AppServiceProvider extends ServiceProvider
@@ -24,5 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::share('Cart', Cart::all());
+        View::share('Wishlist', Wishlist::all());
+        View::share('Kategori', Kategori::all());
     }
 }

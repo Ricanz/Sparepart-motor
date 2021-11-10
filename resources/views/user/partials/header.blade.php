@@ -93,11 +93,11 @@
                         </div>
                         <div class="header__top__right__auth">
                             @if (Route::has('login'))
-                                @auth
-                                    <a href="{{route('login')}}"><i class="fa fa-user"></i> {{Auth::user()->name}}</a>                          
-                                @else
-                                <a href="{{route('login')}}"><i class="fa fa-user"></i> Login</a>
-                                @endif
+                            @auth
+                            <a href="{{route('login')}}"><i class="fa fa-user"></i> {{Auth::user()->name}}</a>
+                            @else
+                            <a href="{{route('login')}}"><i class="fa fa-user"></i> Login</a>
+                            @endif
                             @endauth
                         </div>
                     </div>
@@ -116,29 +116,36 @@
                 <nav class="header__menu">
                     <ul>
                         <li class="active"><a href="{{url('/')}}">Home</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Pages</a>
+                        <li><a href="#">Produk</a></li>
+                        <li><a href="#">Kategori</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="#">Shop Details</a></li>
-                                <li><a href="#">Shoping Cart</a></li>
-                                <li><a href="#">Check Out</a></li>
-                                <li><a href="#">Blog Details</a></li>
+                                @foreach ($Kategori as $item)
+                                    <li><a href="#">{{$item->kategori}}</a></li>
+                                @endforeach               
                             </ul>
                         </li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Berita</a></li>
+                        <li><a href="{{url('kontak')}}">Contact</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="{{url('keranjang')}}"><i class="fa fa-shopping-bag"></i>
-                                {{-- {{dd($Cart)}} --}}
-                                @auth
-                                <span>{{$Cart->where('user_id',Auth::user()->id)->count()}}</span></a></li>
-                        @endauth
+                        <li>
+                            <a href="{{url('wishlist')}}"><i class="fa fa-heart"></i>
+                            @auth
+                                <span>{{$Wishlist->where('user_id',Auth::user()->id)->count()}}</span>
+                            @endauth
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{url('keranjang')}}"><i class="fa fa-shopping-bag"></i>
+                            @auth
+                                <span>{{$Cart->where('user_id',Auth::user()->id)->count()}}</span>
+                            @endauth
+                            </a>
+                        </li>
                     </ul>
                     <div class="header__cart__price">item: <span>$150.00</span></div>
                 </div>

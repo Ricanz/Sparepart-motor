@@ -125,10 +125,10 @@
                                 </select>
                                 {{-- <input type="text" name="nama_kota" placeholder="nama kota"> --}}
                             </div>
-                            <div class="checkout__input">
-                                <p>Berat<span>*</span></p>
-                                <input type="text" name="berat" value="200" id="berat">
-                            </div>
+                            {{-- <div class="checkout__input">
+                                <p>Berat<span>*</span></p> --}}
+                                <input type="text" name="berat" value="1" id="berat">
+                            {{-- </div> --}}
 
                         </div>
                         <div class="col-lg-4 col-md-6">
