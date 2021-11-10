@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Kategori;
 use App\Models\Pembayaran;
 use App\Models\Transaksi;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Http\Request;
@@ -18,7 +19,15 @@ class landingPageController extends Controller
         $produk = Produk::all();
         $Cart = Cart::all();
         $kategori = Kategori::all();
-        return view('user.index', compact('produk','kategori','Cart'));
+        $wishlist = Wishlist::all();
+        return view('user.index', compact('produk','kategori','Cart','wishlist'));
+    }
+
+    public function datawishlist()
+    {
+        $wishlist = Wishlist::where('user_id', Auth::user()->id)->get();
+
+        return view('user.wishlist', compact('wishlist'));
     }
 
     public function showproduk($id)
@@ -98,5 +107,6 @@ class landingPageController extends Controller
         return redirect()->route('keranjang')
             ->with('delete', 'Cart Berhasil Dihapus');
     }
+
 
 }

@@ -65,31 +65,13 @@
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
+                    @foreach ($kategori as $item)
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{asset('landingPage/img/categories/cat-1.jpg')}}">
-                            <h5><a href="#">Fresh Fruit</a></h5>
+                        <div class="categories__item set-bg" data-setbg="{{asset("storage/Kategori/$item->foto")}}">
+                            <h5><a href="#">{{$item->kategori}}</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{asset('landingPage/img/categories/cat-2.jpg')}}">
-                            <h5><a href="#">Dried Fruit</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{asset('landingPage/img/categories/cat-3.jpg')}}">
-                            <h5><a href="#">Vegetables</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{asset('landingPage/img/categories/cat-4.jpg')}}">
-                            <h5><a href="#">drink fruits</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{asset('landingPage/img/categories/cat-5.jpg')}}">
-                            <h5><a href="#">drink fruits</a></h5>
-                        </div>
-                    </div>
+                    @endforeach                    
                 </div>
             </div>
         </div>
@@ -120,7 +102,7 @@
                 {{-- {{dd($item->kategori_id)}} --}}
                 <div class="col-lg-3 col-md-4 col-sm-6 mix {{$item->kategori->kategori}}">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{ asset($item->foto) }}">
+                        <div class="featured__item__pic set-bg" data-setbg="{{ asset("storage/Produk/$item->foto") }}">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="{{route('detail-produk',$item->id)}}"><i class="fa fa-retweet"></i></a></li>

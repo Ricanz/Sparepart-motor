@@ -7,6 +7,7 @@ use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\CekOngkirController;
+use App\Http\Controllers\ArtikelController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -56,9 +57,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 require __DIR__ . '/auth.php';
 
 
-// Route::get('/des', function () {
-//     return view('user.index');
-// });
+Route::get('/kontak', function () {
+    return view('user.kontak');
+});
 
 // Route::get('/home', landingPageController::class, 'produk');
 Route::get('/', [landingPageController::class, 'produk'])->name('landingpage');
@@ -71,7 +72,7 @@ Route::get('/', [landingPageController::class, 'produk'])->name('landingpage');
 
 Route::POST('/checkout', [landingPageController::class, 'checkout'])->name('checkout');
 Route::get('/bayar', [CekOngkirController::class, 'pembayaran'])->name('bayar');
-
+Route::get('/wishlist', [landingPageController::class, 'datawishlist'])->name('wishlist');
 Route::middleware(['auth'])->group(function () {
     Route::get('/hapus/{id}/cart', [landingPageController::class, 'hapuscart'])->name('hapuscart');
     Route::post('/tambah-cart/{id}', [landingPageController::class, 'instantcart']);

@@ -104,5 +104,10 @@ class CartController extends Controller
 
 
     }
+
+    public function checkout() {
+        $provinsi = $this->get_province();
+        
+    }
     
 }
