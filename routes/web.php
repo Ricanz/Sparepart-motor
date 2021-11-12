@@ -56,7 +56,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 require __DIR__ . '/auth.php';
 
-
+Route::get('/konfirmasi', function () {
+    return view('user.konfirmasi');
+});
 Route::get('/kontak', function () {
     return view('user.kontak');
 });

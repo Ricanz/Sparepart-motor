@@ -8,10 +8,10 @@
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>Produk</h2>
-                        <div class="breadcrumb__option">
+                        {{-- <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <span>Shop</span>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

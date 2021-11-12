@@ -69,8 +69,8 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__left">
                         <ul>
-                            <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                            <li>Free Shipping for all Order of $99</li>
+                            <li><i class="fa fa-envelope"></i> sukucadang@gmail.com</li>
+                            <li>Menyediakan suku cadang terbaik se-Jabodetabek</li>
                         </ul>
                     </div>
                 </div>
@@ -79,10 +79,10 @@
                         <div class="header__top__right__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            {{-- <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-pinterest-p"></i></a> --}}
                         </div>
-                        <div class="header__top__right__language">
+                        {{-- <div class="header__top__right__language">
                             <img src="{{asset('landingPage/img/language.png')}}" alt="">
                             <div>English</div>
                             <span class="arrow_carrot-down"></span>
@@ -90,7 +90,7 @@
                                 <li><a href="#">Spanis</a></li>
                                 <li><a href="#">English</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <div class="header__top__right__auth">
                             @if (Route::has('login'))
                             @auth
@@ -147,7 +147,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="header__cart__price">item: <span>$150.00</span></div>
+                    {{-- <div class="header__cart__price">barang: <span>$150.00</span></div> --}}
                 </div>
             </div>
         </div>
