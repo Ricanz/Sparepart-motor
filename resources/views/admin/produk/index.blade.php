@@ -41,7 +41,9 @@
                                     <td>{{ $item->nama_produk }}</td>
                                     <td>{{ $item->deskripsi }}</td>
                                     <td>{{ $item->harga }}</td>
-                                    <td>{{ $item->foto }}</td>
+                                    <td>
+                                        <img height="90" src="{{('storage/Produk/'.$item->foto)}}">
+                                    </td>
                                     <td>{{ $item->kategori->kategori }}</td>
                                     <td>{{ $item->stok }}</td>
                                     <td>

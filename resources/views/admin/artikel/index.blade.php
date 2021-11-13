@@ -38,8 +38,7 @@
                                     <td>{{ $item->judul }}</td>
                                     <td>{{ $item->deskripsi }}</td>
                                     <td>
-                                        <img src
-                                        {{ $item->foto }}</td>
+                                        <img height="90" src="{{('storage/Artikel/'.$item->foto)}}"></td>
                                     <td>
                                         <a href="{{ route('artikel.edit', $item->id) }}">Edit</a>
                                         <form id="form-delete" action="{{ route('artikel.destroy', $item->id) }}" method="POST">
