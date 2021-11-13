@@ -17,30 +17,30 @@
         <!-- ============================================================== -->
         <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md">
-                <div class="navbar-header" data-logobg="skin6">
+                <div class="navbar-header text-center mx-auto align-center" data-logobg="skin6">
                     <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
                             class="ti-menu ti-close"></i></a>
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <div class="navbar-brand">
+                    <div class="navbar-brand text-center mx-auto align-center">
                         <!-- Logo icon -->
                         <a href="{{route('landingpage')}}">
-                            <b class="logo-icon">
+                            <b class="logo-icon text-center mx-auto align-center">
                                 <!-- Dark Logo icon -->
-                                <img src="{{asset('template/assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
+                                <img src="{{asset('template/assets/images/nobglogo.png')}}" class="" alt="homepage" class="dark-logo text-center mx-auto align-center" height="60" />
                                 <!-- Light Logo icon -->
-                                <img src="{{asset('template/assets/images/logo-icon.png')}}" alt="homepage" class="light-logo" />
+                                {{-- <img src="{{asset('template/assets/images/nobglogo.png')}}" alt="homepage" class="light-logo" /> --}}
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text -->
-                            <span class="logo-text">
+                            {{-- <span class="logo-text">
                                 <!-- dark Logo text -->
-                                <img src="{{asset('template/assets/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
+                                <img src="{{asset('template/assets/images/nobglogo.png')}}" alt="homepage" class="dark-logo" />
                                 <!-- Light Logo text -->
-                                <img src="{{asset('template/assets/images/logo-light-text.png')}}" class="light-logo" alt="homepage" />
-                            </span>
+                                <img src="{{asset('template/assets/images/nobglogo.png')}}" class="light-logo" alt="homepage" />
+                            </span> --}}
                         </a>
                     </div>
                     <!-- ============================================================== -->

@@ -7,7 +7,7 @@
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
     <div class="humberger__menu__logo">
-        <a href="#"><img src="{{asset('landingPage/img/logo.png')}}" alt=""></a>
+        <a href="#"><img src="{{asset('landingPage/img/logo.png')}}"  alt=""></a>
     </div>
     <div class="humberger__menu__cart">
         <ul>
@@ -106,10 +106,10 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="header__logo">
-                    <a href="#"><img src="{{asset('landingPage/img/logo.png')}}" alt=""></a>
+        <div class="row ">
+            <div class="col-lg-3  mx-auto align-center text-center" >
+                <div class="header__logo mx-auto align-center text-center">
+                    <a href="#"><img src="{{asset('landingPage/img/logo.png')}}" height="60" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6">

@@ -17,5 +17,5 @@
   <link rel="stylesheet" href="{{asset('landingPage/css/jquery-ui.min.css')}}" type="text/css">
   <link rel="stylesheet" href="{{asset('landingPage/css/owl.carousel.min.css')}}" type="text/css">
   <link rel="stylesheet" href="{{asset('landingPage/css/slicknav.min.css')}}" type="text/css">
-  <link rel="stylesheet" href="{{asset('landingPage/css/style.cs')}}s" type="text/css">
+  <link rel="stylesheet" href="{{asset('landingPage/css/style.css')}}" type="text/css">
 </head>
