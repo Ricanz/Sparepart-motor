@@ -124,7 +124,7 @@
                                 @endforeach               
                             </ul>
                         </li>
-                        <li  class="{{ request()->is('berita*') ? 'active' : ''}}"><a href="{{url('berita')}}">Berita</a></li>
+                        <li  class="{{ request()->is('Artikel*') ? 'active' : ''}}"><a href="{{url('Artikel')}}">Artikel</a></li>
                         <li class="{{ request()->is('kontak*') ? 'active' : ''}}"><a href="{{url('kontak')}}">Contact</a></li>
                     </ul>
                 </nav>

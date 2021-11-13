@@ -119,7 +119,7 @@
                             </div>
                             {{-- <div class="checkout__input">
                                 <p>Berat<span>*</span></p> --}}
-                                <input type="text" name="berat" value="1" id="berat">
+                                <input type="hidden" name="berat" value="1" id="berat">
                             {{-- </div> --}}
 
                         </div>
@@ -224,6 +224,7 @@
                                 // silahkan pelajari cara menampilkan data json agar lebi paham
                                 $.each(value1.cost, function(key2, value2) {
                                     $('select[name="layanan"]').append('<option value="' + key + '">' + value1.service + '-' + value1.description + '-' + value2.value + '</option>');
+                                    // $('select[name="layanan"]').append('<option value="' + key + '">' + value1.service + '-' + value1.description + '-' + value2.value + '</option>');
                                 });
                             });
                         });

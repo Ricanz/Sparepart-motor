@@ -21,7 +21,7 @@
                                 <li><i class="fa fa-calendar-o"></i> {{$item->created_at}}</li>
                                 <li><i class="fa fa-comment-o"></i> 5</li>
                             </ul>
-                            <h5><a href="{{url('detail-berita', $item->id)}}">{{$item->judul}}</a></h5>
+                            <h5><a href="{{url('detail-Artikel', $item->id)}}">{{$item->judul}}</a></h5>
                             <p>{{$item->deskripsi}} </p>
                         </div>
                     </div>

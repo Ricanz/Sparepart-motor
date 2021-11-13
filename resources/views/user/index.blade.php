@@ -9,7 +9,7 @@
                             <i class="fa fa-bars"></i>
                             <span>Kategori Produk</span>
                         </div>
-                        <ul>
+                        <ul style="display: none;">
                             @foreach ($Kategori as $item)
                             <li><a href="#">{{ $item->kategori }}</a></li>
                             @endforeach
@@ -63,7 +63,7 @@
                             <h5><a href="#">{{$item->kategori}}</a></h5>
                         </div>
                     </div>
-                    @endforeach                    
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -83,7 +83,7 @@
                             @foreach ($kategori as $item)
                             <li class="" data-filter=".{{$item->kategori}}">{{$item->kategori}}</li>
                             @endforeach
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -96,15 +96,19 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{ asset("storage/Produk/$item->foto") }}">
                             <ul class="featured__item__pic__hover rounded_button rounded_button_hover button_putar button_warna">
-                                <li><form method="POST" action="{{route('tambahwishlist',$item->id)}}">
+                                <li>
+                                    <form method="POST" action="{{route('tambahwishlist',$item->id)}}">
                                         @csrf
-                                        <button type="submit" ><i class="fa fa-heart"></i></button>  
-                                     </form></li>                              
-                                        <li><a href="{{url('detail-produk', $item->id)}}"><i class="fa fa-retweet"></i></a></li>
-                                    <li><form method="POST" action="{{url('tambah-cart',$item->id)}}">
-                                    @csrf
-                                    <button type="submit" ><i class="fa fa-shopping-cart"></i></button>
-                                </form></li>
+                                        <button type="submit"><i class="fa fa-heart"></i></button>
+                                    </form>
+                                </li>
+                                <li><a href="{{url('detail-produk', $item->id)}}"><i class="fa fa-retweet"></i></a></li>
+                                <li>
+                                    <form method="POST" action="{{url('tambah-cart',$item->id)}}">
+                                        @csrf
+                                        <button type="submit"><i class="fa fa-shopping-cart"></i></button>
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -138,7 +142,7 @@
     </div>
     <!-- Banner End -->
 
-    
+
 
     <!-- Blog Section Begin -->
     <section class="from-blog spad">
@@ -162,12 +166,12 @@
                                 <li><i class="fa fa-calendar-o"></i> {{$item->created_at}}</li>
                                 <li><i class="fa fa-comment-o"></i> 5</li>
                             </ul>
-                            <h5><a href="{{url('detail-berita')}}">{{$item->judul}}</a></h5>
+                            <h5><a href="{{url('detail-Artikel')}}">{{$item->judul}}</a></h5>
                             <p>{{$item->deskripsi}} </p>
                         </div>
                     </div>
                 </div>
-                @endforeach     
+                @endforeach
             </div>
         </div>
     </section>

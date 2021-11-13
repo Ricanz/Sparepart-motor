@@ -133,7 +133,7 @@ class landingPageController extends Controller
     public function detailArtikel($id)
     {
         $artikel = Artikel::where('id', $id)->first();
-        return view ('user.detailBerita', compact('artikel'));
+        return view ('user.detailArtikel', compact('artikel'));
     }
 
     public function detailKategori($id)

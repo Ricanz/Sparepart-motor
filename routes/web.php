@@ -62,13 +62,13 @@ Route::get('/konfirmasi', function () {
 Route::get('/kontak', function () {
     return view('user.kontak');
 });
-Route::get('/berita', function () {
-    return view('user.berita');
+Route::get('/Artikel', function () {
+    return view('user.Artikel');
 });
-// Route::get('/detail-berita', function () {
-//     return view('user.detailBerita');
+// Route::get('/detail-Artikel', function () {
+//     return view('user.detailArtikel');
 // });
-Route::get('/detail-berita/{id}', [landingPageController::class, 'detailArtikel']);
+Route::get('/detail-Artikel/{id}', [landingPageController::class, 'detailArtikel']);
 Route::get('/detail-kategori/{id}', [landingPageController::class, 'detailKategori']);
 Route::get('/detail-produk/{id}', [landingPageController::class, 'detailProduk']);
 // Route::get('/suku-cadang', function () {
