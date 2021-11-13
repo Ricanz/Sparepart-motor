@@ -42,7 +42,7 @@
                                     <td>{{ $item->deskripsi }}</td>
                                     <td>{{ $item->harga }}</td>
                                     <td>{{ $item->foto }}</td>
-                                    <td>{{ $item->kategori_id }}</td>
+                                    <td>{{ $item->kategori->kategori }}</td>
                                     <td>{{ $item->stok }}</td>
                                     <td>
                                         <a href="{{ route('produk.edit', $item->id) }}">Edit</a>
