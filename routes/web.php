@@ -65,9 +65,10 @@ Route::get('/kontak', function () {
 Route::get('/berita', function () {
     return view('user.berita');
 });
-Route::get('/detail-berita', function () {
-    return view('user.detailBerita');
-});
+// Route::get('/detail-berita', function () {
+//     return view('user.detailBerita');
+// });
+Route::get('/detail-berita/{id}', [landingPageController::class, 'detailArtikel']);
 // Route::get('/suku-cadang', function () {
 //     return view('user.produk');
 // });

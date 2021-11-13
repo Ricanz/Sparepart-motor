@@ -8,6 +8,7 @@ use App\Models\Kategori;
 use App\Models\Pembayaran;
 use App\Models\Transaksi;
 use App\Models\Wishlist;
+use App\Models\Artikel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Http\Request;
@@ -127,6 +128,12 @@ class landingPageController extends Controller
         $sukuCadang = Produk::simplePaginate(4);
         return view('user.produk', compact('sukuCadang','produk'));
 
+    }
+
+    public function detailArtikel($id)
+    {
+        $artikel = Artikel::where('id', $id)->first();
+        return view ('user.detailBerita', compact('artikel'));
     }
 
 

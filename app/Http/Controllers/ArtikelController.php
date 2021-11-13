@@ -83,4 +83,6 @@ class ArtikelController extends Controller
             ->with('delete', 'Artikel Berhasil Dihapus');
     }
 
+
+
 }
