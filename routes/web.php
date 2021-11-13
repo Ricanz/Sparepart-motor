@@ -69,6 +69,7 @@ Route::get('/berita', function () {
 //     return view('user.detailBerita');
 // });
 Route::get('/detail-berita/{id}', [landingPageController::class, 'detailArtikel']);
+Route::get('/detail-kategori/{id}', [landingPageController::class, 'detailKategori']);
 // Route::get('/suku-cadang', function () {
 //     return view('user.produk');
 // });

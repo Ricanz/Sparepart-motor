@@ -120,7 +120,7 @@
                         <li><a href="#">Kategori</a>
                             <ul class="header__menu__dropdown">
                                 @foreach ($Kategori as $item)
-                                    <li><a href="#">{{$item->kategori}}</a></li>
+                                    <li><a href="{{url('detail-kategori',$item->id)}}">{{$item->kategori}}</a></li>
                                 @endforeach               
                             </ul>
                         </li>
