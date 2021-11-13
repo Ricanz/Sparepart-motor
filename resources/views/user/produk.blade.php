@@ -48,17 +48,17 @@
                                         <div class="product__discount__item__pic set-bg"
                                             data-setbg="{{asset("storage/Produk/$item->foto")}}">
                                             <div class="product__discount__percent">Baru</div>
-                                            <ul class="featured__item__pic__hover rounded_button rounded_button_hover button_putar button_warna">
+                                            <ul class="product__item__pic__hover rounded_button rounded_button_hover button_putar button_warna">
                                                 <li><form method="POST" action="{{route('tambahwishlist',$item->id)}}">
                                                     @csrf
                                                     <button type="submit" ><i class="fa fa-heart"></i></button>  
-                                                 </form></li>
-                                                <li><a href="{{url('detail-produk', $item->id)}}"><i class="fa fa-retweet"></i></a></li>
+                                                 </form></li>                              
+                                                    <li><a href="{{url('detail-produk', $item->id)}}"><i class="fa fa-retweet"></i></a></li>
                                                 <li><form method="POST" action="{{url('tambah-cart',$item->id)}}">
-                                                    @csrf
-                                                    <button type="submit" ><i class="fa fa-shopping-cart"></i></button>
-                                                </form></li>
-                                            </ul>
+                                                @csrf
+                                                <button type="submit" ><i class="fa fa-shopping-cart"></i></button>
+                                            </form></li>
+                                        </ul>
                                         </div>
                                         <div class="product__discount__item__text">
                                             {{-- <span>Vegetables</span> --}}
@@ -100,17 +100,17 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="{{asset("storage/Produk/$item->foto")}}">
-                                    <ul class="featured__item__pic__hover rounded_button rounded_button_hover button_putar button_warna">
+                                    <ul class="product__item__pic__hover rounded_button rounded_button_hover button_putar button_warna">
                                         <li><form method="POST" action="{{route('tambahwishlist',$item->id)}}">
                                             @csrf
                                             <button type="submit" ><i class="fa fa-heart"></i></button>  
-                                         </form></li>
-                                        <li><a href="{{url('detail-produk', $item->id)}}"><i class="fa fa-retweet"></i></a></li>
+                                         </form></li>                              
+                                            <li><a href="{{url('detail-produk', $item->id)}}"><i class="fa fa-retweet"></i></a></li>
                                         <li><form method="POST" action="{{url('tambah-cart',$item->id)}}">
-                                            @csrf
-                                            <button type="submit" ><i class="fa fa-shopping-cart"></i></button>
-                                        </form></li>
-                                    </ul>
+                                        @csrf
+                                        <button type="submit" ><i class="fa fa-shopping-cart"></i></button>
+                                    </form></li>
+                                </ul>
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="{{url('detail-produk', $item->id)}}">{{ $item->nama_produk }}</a></h6>
