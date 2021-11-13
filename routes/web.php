@@ -47,7 +47,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('artikel', ArtikelController::class);
     Route::get('province', 'CheckoutController@get_province')->name('province');
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('admin.dashboard');
     });
 });
 
@@ -85,9 +85,7 @@ Route::get('/suku-cadang', [landingPageController::class, 'sukuCadang'])->name('
 
 
 
-Route::POST('/checkout', [landingPageController::class, 'checkout'])->name('checkout');
-Route::get('/bayar', [CekOngkirController::class, 'pembayaran'])->name('bayar');
-Route::get('/wishlist', [landingPageController::class, 'datawishlist'])->name('wishlist');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/hapus/{id}/cart', [landingPageController::class, 'hapuscart'])->name('hapuscart');
     Route::post('/tambah-cart/{id}', [landingPageController::class, 'instantcart']);
@@ -95,6 +93,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/tambah-wishlist/{id}', [landingPageController::class, 'tambahwishlist'])->name('tambahwishlist');
     Route::get('/show/{id}/produk', [landingPageController::class, 'showproduk'])->name('detail-produk');
     Route::get('/keranjang', [landingPageController::class, 'keranjang'])->name('keranjang');
+    Route::POST('/checkout', [landingPageController::class, 'checkout'])->name('checkout');
+    Route::get('/bayar', [CekOngkirController::class, 'pembayaran'])->name('bayar');
+    Route::get('/wishlist', [landingPageController::class, 'datawishlist'])->name('wishlist');
 });
 
 Route::get('province', [CekOngkirController::class, 'get_province'])->name('get_province');
