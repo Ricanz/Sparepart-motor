@@ -70,6 +70,7 @@ Route::get('/berita', function () {
 // });
 Route::get('/detail-berita/{id}', [landingPageController::class, 'detailArtikel']);
 Route::get('/detail-kategori/{id}', [landingPageController::class, 'detailKategori']);
+Route::get('/detail-produk/{id}', [landingPageController::class, 'detailProduk']);
 // Route::get('/suku-cadang', function () {
 //     return view('user.produk');
 // });

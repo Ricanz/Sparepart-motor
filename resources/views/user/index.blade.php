@@ -100,7 +100,7 @@
                                         @csrf
                                         <button type="submit" ><i class="fa fa-heart"></i></button>  
                                      </form></li>                              
-                                        <li><a href="{{route('detail-produk',$item->id)}}"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="{{url('detail-produk', $item->id)}}"><i class="fa fa-retweet"></i></a></li>
                                     <li><form method="POST" action="{{url('tambah-cart',$item->id)}}">
                                     @csrf
                                     <button type="submit" ><i class="fa fa-shopping-cart"></i></button>

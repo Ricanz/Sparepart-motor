@@ -143,5 +143,11 @@ class landingPageController extends Controller
         return view ('user.kategori', compact('kategori', 'produk'));
     }
 
+    public function detailProduk($id)
+    {
+        $produk = Produk::where('id', $id)->first();
+        return view ('user.detailProduk', compact('produk'));
+    }
+
 
 }
