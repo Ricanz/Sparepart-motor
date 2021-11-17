@@ -7,7 +7,7 @@
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
     <div class="humberger__menu__logo">
-        <a href="#"><img src="{{asset('landingPage/img/logo.png')}}"  alt=""></a>
+        <a href="#"><img src="{{asset('landingPage/img/nobglogo.png')}}"  alt=""></a>
     </div>
     <div class="humberger__menu__cart">
         <ul>
@@ -62,7 +62,7 @@
 </div>
 <!-- Humberger End -->
 {{-- Header Start --}}
-<header class="header">
+<header class="header"">
     <div class="header__top">
         <div class="container">
             <div class="row">
