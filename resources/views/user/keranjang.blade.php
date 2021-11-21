@@ -54,7 +54,7 @@
                                         </td>
                                         <td class="shoping__cart__total">
 
-                                            <span id="total_{{$loop->iteration}}">{{$item->produk->harga*$item->jumlah}}</span>
+                                            <span class="cart-total" id="total_{{$loop->iteration}}">{{$item->produk->harga*$item->jumlah}}</span>
                                             {{-- {{$item->produk->harga}} --}}
                                         </td>
                                         <td class="shoping__cart__item__close">
@@ -93,7 +93,7 @@
                             <h5>Cart Total</h5>
                             <ul>
                                 {{-- {{dd($produk->where('id'))}} --}}
-                                <li>Total <span id="">{{$jumlahtotal}}</span></li>
+                                <li>Total <span id="total"></span></li>
                             </ul>
                             <button class="primary-btn" @if ($Cart->count() == 0)
                             disabled
@@ -119,12 +119,22 @@
             var total = jumlah * harga
             document.getElementById(`total_${i}`).innerHTML = total;
             // document.getElementById(`totall`).innerHTML = jumlah * harga;
+
+
+            // FUNGSI over power dikiT
+            var total = 0;
+            var x = document.querySelectorAll(".cart-total");
+            // const arr = [1, 2, 3, 4, 5];
+            x.forEach(function (element) {
+                // console.log();
+                total += parseFloat( $(element).text());
+                document.getElementById('total').innerHTML = total;
+            });
+
+        // console.log(total);
         }
-        // $("#hasil").html(total);
+        
 
-
-        //.toFixed() method will roundoff the final sum to 2 decimal places
-        // $("#hasil").html(total);
     </script>
 
 

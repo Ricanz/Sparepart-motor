@@ -128,13 +128,15 @@
                                 <h4>Your Order</h4>
                                 <div class="checkout__order__products">Products <span>Total</span></div>
                                 <ul>
+                                    @php $total = 0; @endphp
                                     @foreach ($Pembayaran as $item)
                                     <li>{{$item->produk->nama_produk}}<span>{{$item->jumlah*$item->produk->harga}}</span></li>
+                                    @php $total = $total + $item->jumlah*$item->produk->harga @endphp
                                     @endforeach
 
                                 </ul>
-                                <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
-                                <div class="checkout__order__total">Total <span>$750.99</span></div>
+                                <div class="checkout__order__subtotal">Subtotal <span id="subtotal">{{$total}}</span></div>
+                                <div class="checkout__order__total">Total <span id="totalbayar"></span></div>
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">
                                         Create an account?
@@ -169,6 +171,15 @@
     @push('scripts')
     {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}
     <script>
+    $('#layanan').on('change', function() {
+        var ongkir = parseFloat($('#layanan').val());
+        var subtotal = parseFloat($('#subtotal').text());
+        ongkir += subtotal;
+        document.getElementById('totalbayar').innerHTML = ongkir;
+        // document.getElementById(`total_${i}`).innerHTML = total;
+
+        console.log(ongkir);
+    });
         function provinsi() {
             let provinceid = document.getElementById("provinsi_id").value;
             if (provinceid) {
@@ -222,8 +233,9 @@
                             $.each(value.costs, function(key1, value1) {
                                 // ini untuk looping cost nya masing masing
                                 // silahkan pelajari cara menampilkan data json agar lebi paham
+                                // $('select[name="layanan"]').append('<option value="''">' + 'PILIH SAYA' + '</option>');
                                 $.each(value1.cost, function(key2, value2) {
-                                    $('select[name="layanan"]').append('<option value="' + key + '">' + value1.service + '-' + value1.description + '-' + value2.value + '</option>');
+                                    $('select[name="layanan"]').append('<option value="' + value2.value + '">' + value1.service + '-' + value1.description + '-' + value2.value + '</option>');
                                     // $('select[name="layanan"]').append('<option value="' + key + '">' + value1.service + '-' + value1.description + '-' + value2.value + '</option>');
                                 });
                             });
