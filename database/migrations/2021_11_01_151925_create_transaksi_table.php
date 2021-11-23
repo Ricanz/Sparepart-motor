@@ -15,11 +15,12 @@ class CreateTransaksiTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("produk_id")->constrained("produk")->onDelete("cascade")->onUpdate("cascade");
-            $table->string('jumlah');
+            $table->json('produk');
             $table->foreignId("user_id")->constrained("users")->onDelete("cascade")->onUpdate("cascade");
+            $table->string('alamat');
+            $table->string('ekspedisi');
             $table->string('ongkir');
-            $table->string('total_harga');
+            $table->double('total_harga');
             $table->enum('status',['Belum Dibayar','Sudah Dibayar','Dikirim','Selesai','Dibatalkan','Dikemas']);
             $table->timestamps();
         });
