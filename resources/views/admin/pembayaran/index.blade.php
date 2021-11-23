@@ -29,11 +29,29 @@
                                     <th scope="col">Produk</th>
                                     <th scope="col">Total Bayar </th>
                                     <th scope="col">Bukti Bayar</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                @foreach ($pembayaran as $item)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{ $item->transaksi_id }}</td>
+                                    <td>{{ $item->bayar }}</td>
+                                    <td>{{ $item->status }}</td>
+                                    <td>
+                                        <img height="90" src="{{('storage/Pembayaran/'.$item->bayar)}}"></td>
+                                    <td>
+                                        <a href="{{ route('kategori.edit', $item->id) }}">Edit</a>
+                                        <form id="form-delete" action="{{ route('kategori.destroy', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

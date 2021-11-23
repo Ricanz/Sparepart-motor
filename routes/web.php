@@ -58,9 +58,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/konfirmasi', function () {
-    return view('user.konfirmasi');
-});
+// Route::get('/konfirmasi', function () {
+//     return view('user.konfirmasi');
+// });
 Route::get('/kontak', function () {
     return view('user.kontak');
 });
@@ -100,7 +100,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/wishlist', [landingPageController::class, 'datawishlist'])->name('wishlist');
     Route::post('/tambah-transaksi', [TransaksiController::class, 'tambahtransaksi'])->name('tambahtransaksi');
 
-    Route::get('/pembayaran/{id}', [TransaksiController::class, 'konfirmasi'])->name('konfirmasi');
+    Route::get('/bukti-pembayaran/{id}', [TransaksiController::class, 'konfirmasi'])->name('konfirmasi');
 });
 
 Route::get('province', [CekOngkirController::class, 'get_province'])->name('get_province');

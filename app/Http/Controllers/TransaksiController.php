@@ -39,7 +39,7 @@ class TransaksiController extends Controller
         // }
         // dd($data);
 
-        Transaksi::create([
+        $transaksi = Transaksi::create([
             'produk' => $data,
             'total_harga' => $request->total_harga, //sudah
             'alamat' => $request->alamat,  //sudah
@@ -48,7 +48,8 @@ class TransaksiController extends Controller
             'ongkir' => $request->layanan, //sudah
             'user_id' => Auth::user()->id,
         ]);
-        redirect()->route()
+        // dd($transaksi->id);  
+        return redirect()->route('konfirmasi',$transaksi->id)
             ->with('success', 'Rating Berhasil Ditambahkan');
     }
 

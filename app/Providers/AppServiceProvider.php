@@ -27,10 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // View::share('Cart', Cart::all());
-        // View::share('Wishlist', Wishlist::all());
-        // View::share('Kategori', Kategori::all());
-        // View::share('Produk', Produk::all());
-        // View::share('Artikel', Artikel::all());
+        View::share('Cart', Cart::all());
+        View::share('Wishlist', Wishlist::all());
+        View::share('Kategori', Kategori::all());
+        View::share('Produk', Produk::all());
+        View::share('Artikel', Artikel::all());
     }
 }
