@@ -93,7 +93,7 @@
                             <h5>Cart Total</h5>
                             <ul>
                                 {{-- {{dd($produk->where('id'))}} --}}
-                                <li>Total <span id="total"></span></li>
+                                <li>Total <span id="total">{{$jumlahtotal}}</span></li>
                             </ul>
                             <button class="primary-btn" @if ($Cart->count() == 0)
                             disabled

@@ -79,7 +79,12 @@ class landingPageController extends Controller
         $Cart = Cart::where('user_id',Auth::user()->id)->get();
         $Cart1 = Cart::where('user_id',Auth::user()->id);
         $produk = Produk::all()->SUM('harga');
-        $jumlahtotal = $Cart->SUM('jumlah');
+        $jumlahtotal = 0;
+        
+        foreach ($Cart as $item)
+        {
+            $jumlahtotal += $item->produk->harga * $item->jumlah;
+        }
         // dd($produk->harga);
         // $hargatotal = Produk::where('user_id',Auth::user()->id)->get();
         // $produk = Produk::find($Cart1->produk_id)->get();

@@ -97,7 +97,7 @@
                             <div class="checkout__input">
                                 <p>Kota Tujuan<span>*</span></p>
                                 <select name="kota_id" id="kota_id" class="form-control">
-                                    <option value=""></option>
+                                    <option value="">Pilih Kota Tujuan</option>
                                 </select>
                                 {{-- <input type="text" name="nama_kota" placeholder="nama kota"> --}}
                             </div>
@@ -126,8 +126,8 @@
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
-                                <h4>Your Order</h4>
-                                <div class="checkout__order__products">Products <span>Total</span></div>
+                                <h4>Pesanan Kamu!</h4>
+                                <div class="checkout__order__products">Total <span>Produk</span></div>
                                 <ul>
                                     @php $total = 0; @endphp
                                     @foreach ($Pembayaran as $item)
@@ -137,7 +137,13 @@
                                     @endforeach
 
                                 </ul>
-                                <div class="checkout__order__subtotal">Subtotal <span id="subtotal">{{$total}}</span></div>
+                                <div class="checkout__order__subtotal">
+                                    Subtotal
+                                    <span id="subtotal">
+                                        {{$total}}
+                                    </span>
+                                </div>
+                                <div class="checkout__order__subtotal">Ongkir <span id="ongkir"></span></div>
                                 <div class="checkout__order__total">Total <span id="totalbayar"></span></div>
                                 <input type="hidden" name="total_harga" id="inputtotal">
                                 <div class="checkout__input__checkbox">
@@ -178,8 +184,10 @@
     $('#layanan').on('change', function() {
         var ongkir = parseFloat($('#layanan').val());
         var subtotal = parseFloat($('#subtotal').text());
+        document.getElementById('ongkir').innerHTML = ongkir;
         ongkir += subtotal;
         document.getElementById('totalbayar').innerHTML = ongkir;
+        
         document.getElementById('inputtotal').value = ongkir;
         console.log(document.getElementById('inputtotal').value = ongkir);
         // document.getElementById(`total_${i}`).innerHTML = total;
@@ -204,6 +212,7 @@
                     success: function(data) {
                         // jika tidak ada select dr provinsi maka select kota kososng / empty
                         $('select[name="kota_id"]').empty();
+                        $('select[name="kota_id"]').append('<option value=""> Pilih Kota Tujuan </option>');
                         // jika ada kita looping dengan each
                         $.each(data, function(key, value) {
                             // perhtikan dimana kita akan menampilkan data select nya, di sini saya memberi name select kota adalah kota_id
@@ -233,14 +242,17 @@
                     dataType: 'json',
                     success: function(data) {
                         $('select[name="layanan"]').empty();
+                        $('select[name="layanan"]').append('<option value=""> Pilih Layanan </option>');
                         // ini untuk looping data result nya
                         $.each(data, function(key, value) {
+
                             // ini looping data layanan misal jne reg, jne oke, jne yes
                             $.each(value.costs, function(key1, value1) {
                                 // ini untuk looping cost nya masing masing
                                 // silahkan pelajari cara menampilkan data json agar lebi paham
                                 // $('select[name="layanan"]').append('<option value="''">' + 'PILIH SAYA' + '</option>');
                                 $.each(value1.cost, function(key2, value2) {
+                                    
                                     $('select[name="layanan"]').append('<option value="' + value2.value + '">' + value1.service + '-' + value1.description + '-' + value2.value + '</option>');
                                     // $('select[name="layanan"]').append('<option value="' + key + '">' + value1.service + '-' + value1.description + '-' + value2.value + '</option>');
                                 });
