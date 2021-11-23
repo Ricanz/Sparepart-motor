@@ -15,9 +15,9 @@ class CreatePembayaranTable extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("transaksi_id")->constrained("transaksi")->onDelete("cascade")->onUpdate("cascade");
-            $table->integer('bayar');
-            $table->enum('status', ['Approved', 'Progress', 'Cancel']);
+            $table->foreignId("produk_id")->constrained("produk")->onDelete("cascade")->onUpdate("cascade");
+            $table->integer('jumlah');
+            $table->foreignId("user_id")->constrained("users")->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });
     }
