@@ -72,7 +72,8 @@
             </div>
             <div class="checkout__form">
                 <h4>Billing Details</h4>
-                <form action="#">
+                <form action="{{route('tambahtransaksi')}}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
 
@@ -81,7 +82,7 @@
                             </div>
                             <div class="checkout__input">
                                 <p>Alamat<span>*</span></p>
-                                <textarea name="address" class="form-control" rows="5" name="alamat" placeholder="Alamat Lengkap pengiriman"></textarea>
+                                <textarea name="alamat" class="form-control" rows="5" name="alamat" placeholder="Alamat Lengkap pengiriman"></textarea>
                             </div>
                             <div class="checkout__input">
                                 <p>Provinsi Tujuan<span>*</span></p>
@@ -130,6 +131,7 @@
                                 <ul>
                                     @php $total = 0; @endphp
                                     @foreach ($Pembayaran as $item)
+                                    <input name="produk[]" type="hidden" value="{{$item->produk->nama_produk}},{{$item->jumlah}}">
                                     <li>{{$item->produk->nama_produk}}<span>{{$item->jumlah*$item->produk->harga}}</span></li>
                                     @php $total = $total + $item->jumlah*$item->produk->harga @endphp
                                     @endforeach
@@ -137,6 +139,7 @@
                                 </ul>
                                 <div class="checkout__order__subtotal">Subtotal <span id="subtotal">{{$total}}</span></div>
                                 <div class="checkout__order__total">Total <span id="totalbayar"></span></div>
+                                <input type="hidden" name="total_harga" id="inputtotal">
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">
                                         Create an account?
@@ -162,6 +165,7 @@
                                 </div>
                                 <button type="submit" class="site-btn">PLACE ORDER</button>
                             </div>
+                       
                         </div>
                     </div>
                 </form>
@@ -176,6 +180,8 @@
         var subtotal = parseFloat($('#subtotal').text());
         ongkir += subtotal;
         document.getElementById('totalbayar').innerHTML = ongkir;
+        document.getElementById('inputtotal').value = ongkir;
+        console.log(document.getElementById('inputtotal').value = ongkir);
         // document.getElementById(`total_${i}`).innerHTML = total;
 
         console.log(ongkir);

@@ -96,6 +96,7 @@ Route::middleware(['auth'])->group(function () {
     Route::POST('/checkout', [landingPageController::class, 'checkout'])->name('checkout');
     Route::get('/bayar', [CekOngkirController::class, 'pembayaran'])->name('bayar');
     Route::get('/wishlist', [landingPageController::class, 'datawishlist'])->name('wishlist');
+    Route::post('/tambah-transaksi', [TransaksiController::class, 'tambahtransaksi'])->name('tambahtransaksi');
 });
 
 Route::get('province', [CekOngkirController::class, 'get_province'])->name('get_province');

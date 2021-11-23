@@ -13,6 +13,11 @@ class Transaksi extends Model
 
     protected $primaryKey = 'id';
 
+    protected $casts = [
+        'produk' => 'array',
+        // 'kontenDokumen_id' => 'array',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
