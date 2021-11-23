@@ -47,7 +47,7 @@
                                 class="hide-menu">Transaksi
                             </span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link" href="#"
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('pembayaran.index') }}"
                             aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
                                 class="hide-menu">Konfirmasi Pembayaran
                             </span></a>

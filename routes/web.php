@@ -8,6 +8,7 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\CekOngkirController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\PembayaranController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +46,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('rating', RatingController::class);
     Route::resource('transaksi', TransaksiController::class);
     Route::resource('artikel', ArtikelController::class);
+    Route::resource('pembayaran', PembayaranController::class);
     Route::get('province', 'CheckoutController@get_province')->name('province');
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
@@ -97,6 +99,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/bayar', [CekOngkirController::class, 'pembayaran'])->name('bayar');
     Route::get('/wishlist', [landingPageController::class, 'datawishlist'])->name('wishlist');
     Route::post('/tambah-transaksi', [TransaksiController::class, 'tambahtransaksi'])->name('tambahtransaksi');
+
     Route::get('/pembayaran/{id}', [TransaksiController::class, 'konfirmasi'])->name('konfirmasi');
 });
 
