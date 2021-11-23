@@ -25,35 +25,17 @@
                             <thead class="bg-primary text-white">
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">Nama Produk</th>
-                                    <th scope="col">Deskripsi</th>
-                                    <th scope="col">Harga</th>
-                                    <th scope="col">Foto Produk</th>
+                                    <th scope="col">Nama Penguna</th>
+                                    <th scope="col">Produk</th>
+                                    <th scope="col">Alamat</th>
+                                    <th scope="col">Total Bayar </th>
                                     <th scope="col">Kategori</th>
                                     <th scope="col">Stok</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($produk as $item)
-                                <tr>
-                                    <th scope="row">{{ $loop->iteration }}</th>
-                                    <td>{{ $item->nama_produk }}</td>
-                                    <td>{{ $item->deskripsi }}</td>
-                                    <td>{{ $item->harga }}</td>
-                                    <td>{{ $item->foto }}</td>
-                                    <td>{{ $item->kategori_id }}</td>
-                                    <td>{{ $item->stok }}</td>
-                                    <td>
-                                        <a href="{{ route('produk.edit', $item->id) }}">Edit</a>
-                                        <form id="form-delete" action="{{ route('produk.destroy', $item->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit">Hapus</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
+                                
                             </tbody>
                         </table>
                     </div>

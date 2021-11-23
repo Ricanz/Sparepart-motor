@@ -48,7 +48,13 @@ class TransaksiController extends Controller
             'ongkir' => $request->layanan, //sudah
             'user_id' => Auth::user()->id,
         ]);
-        return back()
+        redirect()->route()
             ->with('success', 'Rating Berhasil Ditambahkan');
+    }
+
+    public function konfirmasi($id)
+    {
+        $transaksi = Transaksi::find($id);
+        return view ('user.konfirmasi', compact('transaksi'));
     }
 }

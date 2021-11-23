@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
     <!-- Breadcrumb Section End -->
 
     <!-- Contact Section Begin -->
@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
-                        <h4>Transfer Sebesar [Jumlah Pembayaran]</h4>
+                        <h4>Transfer Sebesar Rp. {{ $transaksi->total_harga }}</h4>
                         <p>dan kirimkan bukti transfer</p>
                     </div>
                 </div>
