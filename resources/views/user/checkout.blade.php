@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="checkout__form">
-                <h4>Billing Details</h4>
+                <h4>Detail Pembayaran</h4>
                 <form action="{{route('tambahtransaksi')}}" method="post">
                     @csrf
                     <div class="row">
