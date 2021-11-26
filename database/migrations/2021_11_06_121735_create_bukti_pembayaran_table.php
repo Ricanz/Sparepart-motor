@@ -16,7 +16,7 @@ class CreateBuktiPembayaranTable extends Migration
         Schema::create('bukti_pembayaran', function (Blueprint $table) {
             $table->id();
             $table->foreignId("transaksi_id")->constrained("transaksi")->onDelete("cascade")->onUpdate("cascade");
-            $table->integer('bayar');
+            $table->integer('bukti');
             $table->enum('status', ['Approved', 'Progress', 'Cancel']);
             $table->timestamps();
         });

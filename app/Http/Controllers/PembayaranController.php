@@ -12,4 +12,6 @@ class PembayaranController extends Controller
         $pembayaran = Pembayaran::all();
         return view ('admin.pembayaran.index', compact('pembayaran'));
     }
+
+    
 }

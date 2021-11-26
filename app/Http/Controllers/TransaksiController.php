@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\BuktiPembayaran;
 use App\Models\Transaksi;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -57,5 +59,29 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::find($id);
         return view ('user.konfirmasi', compact('transaksi'));
+    }
+
+    public function sendBukti(Request $request, $id)
+    {
+        $request->validate([
+            'bukti' => 'required',
+        ]);
+
+        $bukti = BuktiPembayaran::findOrFail($id);
+
+        if ($request->has("bukti")) {
+
+            Storage::delete("public/Bukti/$bukti->bukti");
+
+            $date = date("his");
+            $extension = $request->file('bukti')->extension();
+            $file_name = "Bukti_$date.$extension";
+            $path = $request->file('bukti')->storeAs('public/Bukti', $file_name);
+            
+            $bukti->bukti = $file_name;
+        }
+
+        return redirect()->route('user.konfirmasi')
+        ->with('success', 'Bukti Pembayaran Berhasil Dikirim');
     }
 }

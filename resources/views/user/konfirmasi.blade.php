@@ -53,10 +53,11 @@
                     </div>
                 </div>
             </div>
-            <form action="#">
+            <form action="{{ route('sendBukti'), $transaksi->id }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="row">
                     <div class="col-lg-12 col-md-6">
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input type="file" name="bukti" class="form-control-file" id="exampleFormControlFile1">
                     </div>
                     <div class="col-lg-12 text-center">
                         <button type="submit" class="site-btn">KIRIM BUKTI</button>
