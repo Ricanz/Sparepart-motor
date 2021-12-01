@@ -67,20 +67,16 @@ class TransaksiController extends Controller
             'bukti' => 'required',
         ]);
 
-        $bukti = BuktiPembayaran::findOrFail($id);
+        $date = date("his");
+        $extension = $request->file('bukti')->extension();
+        $file_name = "BuktiPembayaran_$date.$extension";
+        $path = $request->file('bukti')->storeAs('public/BuktiPembayaran', $file_name);
 
-        if ($request->has("bukti")) {
-
-            Storage::delete("public/Bukti/$bukti->bukti");
-
-            $date = date("his");
-            $extension = $request->file('bukti')->extension();
-            $file_name = "Bukti_$date.$extension";
-            $path = $request->file('bukti')->storeAs('public/Bukti', $file_name);
-            
-            $bukti->bukti = $file_name;
-        }
-
+        BuktiPembayaran::create([
+            'transaksi_id' => $id,
+            'status' => 'Progress',
+            'bukti' => $file_name,
+        ]);
         return redirect()->route('user.konfirmasi')
         ->with('success', 'Bukti Pembayaran Berhasil Dikirim');
     }

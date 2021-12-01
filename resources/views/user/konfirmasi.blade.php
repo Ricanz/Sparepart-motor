@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('sendBukti'), $transaksi->id }}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('sendBukti',$transaksi->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-lg-12 col-md-6">
