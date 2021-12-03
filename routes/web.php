@@ -38,6 +38,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/checkout', function () {
 //     return view('user.checkout');
 // });
+Route::get('/test', function () {
+    return view('user.transaksi');
+});
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('produk', ProdukController::class);
