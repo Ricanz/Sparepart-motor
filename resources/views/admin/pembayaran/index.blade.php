@@ -25,11 +25,9 @@
                             <thead class="bg-primary text-white">
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">Nama Penguna</th>
-                                    <th scope="col">Produk</th>
-                                    <th scope="col">Total Bayar </th>
-                                    <th scope="col">Bukti Bayar</th>
+                                    <th scope="col">Transaksi</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col">Bukti Bayar</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -38,17 +36,31 @@
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $item->transaksi_id }}</td>
-                                    <td>{{ $item->bayar }}</td>
-                                    <td>{{ $item->status }}</td>
                                     <td>
-                                        <img height="90" src="{{('storage/Pembayaran/'.$item->bayar)}}"></td>
+                                        {{ $item->status }}
+                                    </td>
                                     <td>
-                                        <a href="{{ route('kategori.edit', $item->id) }}">Edit</a>
-                                        <form id="form-delete" action="{{ route('kategori.destroy', $item->id) }}" method="POST">
+                                        <img height="90" src="{{asset('storage/BuktiPembayaran/'.$item->bukti)}}"></td>
+                                    <td>
+                                        @if ($item->status == 'Progress')
+                                        <form id="form-delete" action="{{ route('pembayaran.update', $item->id) }}" method="POST">
                                             @csrf
-                                            @method('DELETE')
-                                            <button type="submit">Hapus</button>
+                                            @method("PUT")
+                                            <input type="hidden" name="status" value="Cancel">
+                                            <button type="submit">Cancel</button>
                                         </form>
+                                      
+                                        <form id="form-delete" action="{{ route('pembayaran.update', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method("PUT")
+                                            <input type="hidden" name="status" value="Approved">
+                                            <button type="submit">Approved</button>
+                                        </form>
+                                        @else 
+                                            Sudah
+                                        @endif
+                                        
+                                       
                                     </td>
                                 </tr>
                                 @endforeach
