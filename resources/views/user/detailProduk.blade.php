@@ -54,7 +54,7 @@
                     <h2>{{$produk->nama_produk}}</h2>
                     <div class="breadcrumb__option">
                         <a href="./index.html">Home</a>
-                        <a href="./index.html">Vegetables</a>
+                        <a href="./index.html">oli</a>
                         <span>{{$produk->nama_produk}}</span>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="product__details__pic__slider owl-carousel">
                         <img data-imgbigurl="{{asset('landingPage/img/product/details/product-details-2.jpg')}}"
-                            src="{{asset('landingPage/img/product/details/thumb-1.jpg')}}" alt="">
+                            src="{{asset('landingPage/img/product/details/enduroM.jpg')}}" alt="">
                         <img data-imgbigurl="{{asset('landingPage/img/product/details/product-details-3.jpg')}}"
                             src="{{asset('landingPage/img/product/details/thumb-2.jpg')}}" alt="">
                         <img data-imgbigurl="{{asset('landingPage/img/product/details/product-details-5.jpg')}}"
@@ -145,7 +145,7 @@
                                 aria-selected="false">Reviews <span>(1)</span></a>
                         </li>
                     </ul>
-                    <div class="tab-content">
+                        <!-- <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Products Infomation</h6>
@@ -189,8 +189,8 @@
                                     porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
                                     nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
                             </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                        </div> -->
+                        <!-- <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Products Infomation</h6>
                                 <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
@@ -204,7 +204,7 @@
                                     ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
                                     Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
                                     Proin eget tortor risus.</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
 <!-- Product Details Section End -->
 
 <!-- Related Product Section Begin -->
-<section class="related-product">
+<!-- <section class="related-product">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -285,7 +285,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <!-- Related Product Section End -->

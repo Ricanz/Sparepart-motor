@@ -32,7 +32,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pembayaran as $item)
+                                @foreach ($pembayaran as $item)  
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $item->transaksi_id }}</td>

@@ -20,6 +20,9 @@ class CreateTransaksiTable extends Migration
             $table->string('alamat');
             $table->string('ekspedisi');
             $table->string('ongkir');
+            $table->string('code');
+            $table->string('nama');
+            $table->string('no_hp');
             $table->double('total_harga');
             $table->enum('status',['Belum Dibayar','Sudah Dibayar','Dikirim','Selesai','Dibatalkan','Dikemas']);
             $table->timestamps();

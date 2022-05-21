@@ -104,6 +104,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/tambah-transaksi', [TransaksiController::class, 'tambahtransaksi'])->name('tambahtransaksi');
 
     Route::get('/bukti-pembayaran/{id}', [TransaksiController::class, 'konfirmasi'])->name('konfirmasi');
+    Route::get('/user-has-paid/{code}', [TransaksiController::class, 'hasPay'])->name('hasPay');
     Route::post('/send-bukti/{id}', [TransaksiController::class, 'sendBukti'])->name('sendBukti');
 });
 

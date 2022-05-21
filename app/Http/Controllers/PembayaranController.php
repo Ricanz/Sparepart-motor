@@ -18,7 +18,6 @@ class PembayaranController extends Controller
     public function update(Request $request, $id)
     {
 
-
         $BuktiPembayaran = BuktiPembayaran::findOrFail($id);
 
         $BuktiPembayaran->status = $request->status;

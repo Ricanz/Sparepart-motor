@@ -146,7 +146,7 @@
                                 <div class="checkout__order__subtotal">Ongkir <span id="ongkir"></span></div>
                                 <div class="checkout__order__total">Total <span id="totalbayar"></span></div>
                                 <input type="hidden" name="total_harga" id="inputtotal">
-                                <div class="checkout__input__checkbox">
+                                <!-- <div class="checkout__input__checkbox">
                                     <label for="acc-or">
                                         Create an account?
                                         <input type="checkbox" id="acc-or">
@@ -168,8 +168,8 @@
                                         <input type="checkbox" id="paypal">
                                         <span class="checkmark"></span>
                                     </label>
-                                </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
+                                </div> -->
+                                <button type="submit" class="site-btn">PROSES PESANAN</button>
                             </div>
                        
                         </div>

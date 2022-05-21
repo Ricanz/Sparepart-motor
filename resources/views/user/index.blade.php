@@ -38,12 +38,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="{{asset('landingPage/img/hero/banner.jpg')}}">
+                    <div class="hero__item set-bg" data-setbg="{{asset('landingPage/img/banner/gambarhome.jpg')}}">
                         <div class="hero__text">
-                            <span>FRUIT FRESH</span>
+                            <!-- <span>FRUIT FRESH</span>
                             <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
+                            <p>Free Pickup and Delivery Available</p> -->
+                            <!-- <a href="#" class="primary-btn">SHOP NOW</a> -->
                         </div>
                     </div>
                 </div>
@@ -129,12 +129,12 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="banner__pic">
-                        <img src="{{asset('landingPage/img/banner/banner-1.jpg')}}" alt="">
+                        <img src="{{asset('landingPage/img/banner/gambarhome.jpg')}}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="banner__pic">
-                        <img src="{{asset('landingPage/img/banner/banner-2.jpg')}}" alt="">
+                        <img src="{{asset('landingPage/img/banner/home-2.jpg')}}" alt="">
                     </div>
                 </div>
             </div>

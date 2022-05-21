@@ -27,30 +27,20 @@ class TransaksiController extends Controller
             $data[$key]['produk'] = explode(",",$items)[0];
             $data[$key]['jumlah'] = explode(",",$items)[1];
         }
+
+        $code = random_int(100000, 999999);
        
-
-        // $i = 0;
-        // foreach ($data as $item) {
-        //     // dd($item);
-        //     $dataa[$i] = ([
-        //         'nama_produk' => $item[0],
-        //         'jumlah' => $item[1],
-        //         // 'nama_produk' => $item,
-        //     ]);
-        //     $i++;
-        // }
-        // dd($data);
-
         $transaksi = Transaksi::create([
             'produk' => $data,
             'total_harga' => $request->total_harga, //sudah
             'alamat' => $request->alamat,  //sudah
             'status' => 'Belum Dibayar',  //sudah
             'ekspedisi' => $request->kurir, //sudah
-            'ongkir' => $request->layanan, //sudah
-            'user_id' => Auth::user()->id,
+            'ongkir' => $request->layanan, //sudah 
+            'user_id' => 1,
+            'code' => $code
+            // 'user_id' => Auth::user()->id,
         ]);
-        // dd($transaksi->id);  
         return redirect()->route('konfirmasi',$transaksi->id)
             ->with('success', 'Rating Berhasil Ditambahkan');
     }
@@ -66,18 +56,29 @@ class TransaksiController extends Controller
         $request->validate([
             'bukti' => 'required',
         ]);
+        $transaksi = Transaksi::find($id);
 
         $date = date("his");
         $extension = $request->file('bukti')->extension();
         $file_name = "BuktiPembayaran_$date.$extension";
+        // $path = $request->file('bukti')->storeAs('public/Produk', $file_name);
+
         $path = $request->file('bukti')->storeAs('public/BuktiPembayaran', $file_name);
+        // dd($path);
 
         BuktiPembayaran::create([
             'transaksi_id' => $id,
             'status' => 'Progress',
             'bukti' => $file_name,
         ]);
-        return redirect()->route('user.konfirmasi')
+        return redirect()->route('hasPay', $transaksi->code)
         ->with('success', 'Bukti Pembayaran Berhasil Dikirim');
+    }
+
+    public function hasPay($code){
+        $transaksi = Transaksi::where('code', $code)->first();
+        $produk = $transaksi->produk;
+        // dd($produk[0]);
+        return view('user.hasbayar', compact('transaksi', 'produk'));
     }
 }
