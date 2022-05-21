@@ -29,14 +29,14 @@ class TransaksiController extends Controller
         }
 
         $code = random_int(100000, 999999);
-       
+
         $transaksi = Transaksi::create([
             'produk' => $data,
             'total_harga' => $request->total_harga, //sudah
             'alamat' => $request->alamat,  //sudah
             'status' => 'Belum Dibayar',  //sudah
             'ekspedisi' => $request->kurir, //sudah
-            'ongkir' => $request->layanan, //sudah 
+            'ongkir' => $request->layanan, //sudah
             'user_id' => 1,
             'code' => $code
             // 'user_id' => Auth::user()->id,
@@ -59,17 +59,19 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::find($id);
 
         $date = date("his");
-        $extension = $request->file('bukti')->extension();
-        $file_name = "BuktiPembayaran_$date.$extension";
-        // $path = $request->file('bukti')->storeAs('public/Produk', $file_name);
-
-        $path = $request->file('bukti')->storeAs('public/BuktiPembayaran', $file_name);
-        // dd($path);
+        if (isset($request->bukti)) {
+            $extention = $request->bukti->extension();
+            $file_name = time() . '.' . $extention;
+            $txt = "storage/buktiPembayaran/". $file_name;
+            $request->bukti->storeAs('public/bktiPembayaran', $file_name);
+        } else {
+            $file_name = null;
+        }
 
         BuktiPembayaran::create([
             'transaksi_id' => $id,
             'status' => 'Progress',
-            'bukti' => $file_name,
+            'bukti' => $txt,
         ]);
         return redirect()->route('hasPay', $transaksi->code)
         ->with('success', 'Bukti Pembayaran Berhasil Dikirim');
