@@ -63,7 +63,7 @@ class TransaksiController extends Controller
             $extention = $request->bukti->extension();
             $file_name = time() . '.' . $extention;
             $txt = "storage/buktiPembayaran/". $file_name;
-            $request->bukti->storeAs('public/bktiPembayaran', $file_name);
+            $request->bukti->storeAs('public/buktiPembayaran', $file_name);
         } else {
             $file_name = null;
         }
